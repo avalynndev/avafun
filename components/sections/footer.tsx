@@ -1,24 +1,25 @@
 "use client";
 
-import { TwitterIcon, CoffeeIcon, GithubIcon } from "lucide-react";
+import { CoffeeIcon, GithubIcon, TwitterIcon } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "../mode-toggle";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function Footer() {
   return (
-    <footer className="py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto text-center">
-        <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+    <footer className="px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl text-center">
+        <div className="mb-6 flex flex-col justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
           <Button variant="outline">
-            <GithubIcon className="mr-2 h-4 w-4" /> Github
+            <GithubIcon className="mr-2 size-4" /> Github
           </Button>
           <Button variant="outline">
-            <TwitterIcon className="mr-2 h-4 w-4" /> Twitter
+            <TwitterIcon className="mr-2 size-4" /> Twitter
           </Button>
           <Button disabled variant="outline">
-            <CoffeeIcon className="mr-2 h-4 w-4" /> Support
+            <CoffeeIcon className="mr-2 size-4" /> Support
           </Button>
-          <ModeToggle/>
+          <ModeToggle />
         </div>
         <a href="/privacy" className="text-gray-400 hover:underline">
           Privacy policy

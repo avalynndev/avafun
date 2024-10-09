@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+
 import { grandstander } from "@/lib/fonts";
+
 import "@/styles/globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
+
 import { Footer } from "@/components/sections/footer";
+import StoreProvider from "@/components/store-provider";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,11 +25,13 @@ export default function RootLayout({
         className={`${grandstander.className} min-h-screen bg-background antialiased`}
       >
         <div className="flex min-h-screen flex-col">
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <TailwindIndicator />
-          </ThemeProvider>
+          <StoreProvider>
+            <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <TailwindIndicator />
+            </ThemeProvider>
+          </StoreProvider>
         </div>
       </body>
     </html>

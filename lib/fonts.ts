@@ -1,5 +1,5 @@
-import localFont from "next/font/local";
 import { Grandstander, Indie_Flower } from "next/font/google";
+import localFont from "next/font/local";
 
 export const grandstander = Grandstander({
   subsets: ["vietnamese"],

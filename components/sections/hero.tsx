@@ -6,7 +6,7 @@ export function Hero() {
           <div className="container flex max-w-screen-md flex-col items-center gap-5 text-center">
             <h1 className="text-balance text-[40px] font-black leading-[1.15] tracking-tight sm:text-5xl md:text-6xl md:leading-[1.15]">
               ava{""}
-              <span className="pl-2 bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 bg-clip-text pl-2 text-transparent">
                 .
               </span>
               fun

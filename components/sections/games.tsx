@@ -26,14 +26,14 @@ const elements: InteractiveElement[] = [
 
 export function Games() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
       {elements.map((element, index) => (
         <Link href={element.isDisabled ? "" : element.url} key={index}>
           <div
-            className={`flex items-center justify-center text-center h-36 cursor-pointer ${
+            className={`flex h-36 cursor-pointer items-center justify-center text-center ${
               element.isDisabled
                 ? "cursor-not-allowed"
-                : "hover:opacity-90 hover:scale-105 transition-transform duration-300"
+                : "transition-transform duration-300 hover:scale-105 hover:opacity-90"
             }`}
             aria-disabled={element.isDisabled}
           >
