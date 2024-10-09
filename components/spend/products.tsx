@@ -1,12 +1,13 @@
 "use client";
-import Product from "@/components/spend/product";
+
 import { useAppSelector } from "@/lib/hooks";
 import NumberTicker from "@/components/ui/number-ticker";
+import Product from "@/components/spend/product";
 
 function Products() {
   const items = useAppSelector((state: any) => state.product.items);
   const currentMoney = useAppSelector(
-    (state: any) => state.product.currentMoney
+    (state: any) => state.product.currentMoney,
   );
 
   return (

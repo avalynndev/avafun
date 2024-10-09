@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { updateCount } from "@/redux/productSlicer";
 
-
-
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-
-
-
-
 
 function Product({ id }: { id: string }) {
   const items = useAppSelector((state: any) => state.product.items);

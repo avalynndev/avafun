@@ -15,7 +15,7 @@ export default function Spend() {
           fun
         </h1>
       </Link>
-      <main className="w-full rounded-lg border  p-4 py-12 shadow-lg">
+      <main className="w-full rounded-lg border p-4 py-12 shadow-lg">
         <div className="mb-6 text-center">
           <img
             src="https://neal.fun/spend/billgates.jpg"
