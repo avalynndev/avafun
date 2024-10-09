@@ -12,7 +12,8 @@
     "react/jsx-key": "off",
     "tailwindcss/no-contradicting-classname": "off",
     "tailwindcss/no-custom-classname": "off",
-    "tailwindcss/classnames-order": "error"
+    "tailwindcss/classnames-order": "error",
+    "tailwindcss/enforces-shorthand": "off"
   },
   "settings": {
     "tailwindcss": {

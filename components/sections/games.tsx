@@ -38,7 +38,7 @@ export function Games() {
             }`}
             aria-disabled={element.isDisabled}
           >
-            <Image src={element.backgroundUrl} alt={element.url} />
+            <img src={element.backgroundUrl} alt={element.url} />
           </div>
         </Link>
       ))}
