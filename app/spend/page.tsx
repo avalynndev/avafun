@@ -1,23 +1,30 @@
-import Link from "next/link";
+"use client";
 
+import Image from "next/image";
+
+import { geistSans } from "@/lib/fonts";
+import { useAppSelector } from "@/lib/hooks";
+import NumberTicker from "@/components/ui/number-ticker";
 import Products from "@/components/spend/products";
 import Receipt from "@/components/spend/receipt";
 
 export default function Spend() {
+  const currentMoney = useAppSelector(
+    (state: any) => state.product.currentMoney,
+  );
+
   return (
-    <main className="mx-auto flex max-w-6xl flex-col items-center pt-10">
-      <Link href="/">
-        <h1 className="text-balance pb-10 text-[40px] font-black leading-[1.15] tracking-tight sm:text-5xl md:text-6xl md:leading-[1.15]">
-          ava{""}
-          <span className="bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 bg-clip-text pl-2 text-transparent">
-            .
-          </span>
-          fun
-        </h1>
-      </Link>
+    <main
+      className={`${geistSans.className} mx-auto flex max-w-6xl flex-col items-center pt-10`}
+    >
+      <div className="text-balance pb-10">
+        <a href="/" className="text-gray-400 hover:underline">
+          Home
+        </a>
+      </div>
       <main className="w-full rounded-lg border p-4 py-12 shadow-lg">
         <div className="mb-6 text-center">
-          <img
+          <Image
             src="https://neal.fun/spend/billgates.jpg"
             alt="Profile picture"
             width={100}
@@ -29,6 +36,11 @@ export default function Spend() {
           </h2>
         </div>
       </main>
+      <div className="z-sticky fixed sticky inset-x-0 top-0 z-50 my-2 flex h-20 w-full items-center justify-center rounded-md bg-green-400 text-white shadow-md">
+        <p className="text-4xl font-medium">
+          $ <NumberTicker className="text-white" value={currentMoney} />
+        </p>
+      </div>
       <div className="flex justify-center">
         <Products />
       </div>

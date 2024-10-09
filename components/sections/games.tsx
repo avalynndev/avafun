@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type InteractiveElement = {
@@ -37,7 +38,7 @@ export function Games() {
             }`}
             aria-disabled={element.isDisabled}
           >
-            <img src={element.backgroundUrl} alt={element.url} />
+            <Image src={element.backgroundUrl} alt={element.url} />
           </div>
         </Link>
       ))}

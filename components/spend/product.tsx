@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { updateCount } from "@/redux/productSlicer";
 
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -60,10 +61,18 @@ function Product({ id }: { id: string }) {
 
   return (
     <Card className="flex size-full flex-col items-center border border-gray-200 p-4 text-black dark:bg-blue-50">
-      <img src={item.image} alt={item.productName} className="m-auto" />
-      <p className="text-xl font-bold">{item.productName}</p>
-      <p>${item.productPrice}</p>
-      <div className="mt-4 flex items-center space-x-4">
+      <div className="relative h-40 w-40 sm:h-48 sm:w-48">
+        <Image
+          src={item.image}
+          alt={item.productName}
+          fill
+          objectFit="contain"
+          className="m-auto"
+        />
+      </div>
+      <p className="mt-4 text-lg font-bold sm:text-xl">{item.productName}</p>
+      <p className="mt-2 text-lg sm:text-xl">${item.productPrice}</p>
+      <div className="mt-4 flex w-full flex-col items-center space-y-4 sm:flex-row sm:justify-between sm:space-x-4 sm:space-y-0">
         <Button
           className="h-10 w-24 bg-red-500"
           disabled={!isSellable}
@@ -74,12 +83,12 @@ function Product({ id }: { id: string }) {
         </Button>
         <Input
           type="number"
-          className="h-10 w-20 border border-gray-300 text-center"
+          className="h-10 w-full border border-gray-300 text-center sm:w-20"
           value={count}
           onChange={(e) => handleChange(Number(e.target.value))}
         />
         <Button
-          className="h-10 w-24"
+          className="h-10 w-full sm:w-24"
           disabled={!isBuyable}
           variant="default"
           onClick={buy}
