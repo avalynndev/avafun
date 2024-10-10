@@ -66,8 +66,7 @@ function Product({ id }: { id: string }) {
           src={item.image}
           alt={item.productName}
           fill
-          objectFit="contain"
-          className="m-auto"
+          className="m-auto object-contain"
         />
       </div>
       <p className="mt-4 text-lg font-bold sm:text-xl">{item.productName}</p>

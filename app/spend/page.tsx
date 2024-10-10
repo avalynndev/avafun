@@ -22,21 +22,21 @@ export default function Spend() {
           Home
         </a>
       </div>
-      <main className="w-full rounded-lg border p-4 py-12 shadow-lg">
+      <main className="w-full rounded-t-lg border p-4 py-12 shadow-lg">
         <div className="mb-6 text-center">
           <Image
             src="https://neal.fun/spend/billgates.jpg"
             alt="Profile picture"
-            width={100}
-            height={100}
+            width={150}
+            height={150}
             className="mx-auto mb-4 rounded-full"
           />
-          <h2 className="mb-4 text-4xl font-bold">
+          <h2 className="mb-4 text-3xl font-bold">
             Spend Bill Gates&apos; Money
           </h2>
         </div>
       </main>
-      <div className="z-sticky fixed sticky inset-x-0 top-0 z-50 my-2 flex h-20 w-full items-center justify-center rounded-md bg-green-400 text-white shadow-md">
+      <div className="z-sticky fixed sticky inset-x-0 top-0 z-50 my-2 flex h-20 w-full items-center justify-center rounded-b-md bg-green-400 text-white shadow-md">
         <p className="text-4xl font-medium">
           $ <NumberTicker className="text-white" value={currentMoney} />
         </p>
@@ -44,7 +44,7 @@ export default function Spend() {
       <div className="flex justify-center">
         <Products />
       </div>
-      <div className="py-8">
+      <div className="w-full py-8">
         <Receipt />
       </div>
     </main>

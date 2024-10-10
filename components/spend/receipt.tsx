@@ -25,29 +25,34 @@ function Receipt() {
   };
 
   return (
-    <Card className="gap-4 p-4">
-      <h2 className="pb-4 text-2xl font-bold">Your Receipt</h2>
-      <div className="space-y-2">
-        {filtered.map((item) => (
-          <Card key={item.id} className="grid grid-cols-3 gap-4 p-2">
-            <div className="col-span-1">
-              <p className="text-sm">{item.productName}</p>
-            </div>
-            <div className="col-span-1">
-              <p>x {item.count}</p>
-            </div>
-            <div className="col-span-1">
-              <p className="text-green-600">
-                $ {formatNumber(Number(item.productPrice) * Number(item.count))}
-              </p>
-            </div>
-          </Card>
-        ))}
-      </div>
-      <div className="col-span-3 my-4 border-t"></div>
-      <div className="col-span-2 text-lg font-bold">TOTAL</div>
-      <div className="col-span-1 text-right text-lg font-bold text-green-500">
-        $ {spendMoney}
+    <Card className="gap-4 p-4 px-32">
+      <div className="md:mx-64">
+        <div className="flex justify-center">
+          <h2 className="pb-4 text-center text-2xl font-bold">Your Receipt</h2>
+        </div>
+        <div className="space-y-2">
+          {filtered.map((item) => (
+            <Card key={item.id} className="grid grid-cols-3 gap-4 p-2">
+              <div className="col-span-1">
+                <p className="text-sm">{item.productName}</p>
+              </div>
+              <div className="col-span-1">
+                <p>x {item.count}</p>
+              </div>
+              <div className="col-span-1">
+                <p className="text-green-600">
+                  ${" "}
+                  {formatNumber(Number(item.productPrice) * Number(item.count))}
+                </p>
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="col-span-3 my-4 border-t"></div>
+        <div className="col-span-2 text-lg font-bold">TOTAL</div>
+        <div className="col-span-1 text-right text-lg font-bold text-green-500">
+          $ {spendMoney}
+        </div>
       </div>
     </Card>
   );

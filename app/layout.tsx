@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { grandstander } from "@/lib/fonts";
+import { robotoCondensed } from "@/lib/fonts";
 
 import "@/styles/globals.css";
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${grandstander.className} min-h-screen bg-background antialiased`}
+        className={`${robotoCondensed.className} min-h-screen bg-background antialiased`}
       >
         <div className="flex min-h-screen flex-col">
           <StoreProvider>
