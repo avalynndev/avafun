@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+
 import { games } from "@/config/games";
 
 const containerVariants = {

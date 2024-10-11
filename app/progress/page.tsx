@@ -1,7 +1,7 @@
 "use client";
-import Link from "next/link"
-import { Button } from "@/components/ui/button";
+
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   daysInYearToDate,
   getDaysUntilNextDate,
@@ -15,6 +15,7 @@ import {
 import { getPageHeight, getPixelsScrolled } from "@/util/height";
 import { motion } from "framer-motion";
 
+import { Button } from "@/components/ui/button";
 import ProgressBar from "@/components/progress/bar";
 
 const fadeInUp = {
@@ -45,10 +46,10 @@ export default function Progress() {
     <div className="mx-auto flex max-w-5xl flex-col">
       <div className="mb-2.5 mt-7 flex flex-col items-center justify-center bg-white p-2.5">
         <motion.div className="text-balance pb-4 sm:pb-10" variants={fadeInUp}>
-        <Link href="/">
-          <Button variant="linkHover2">Home</Button>
-        </Link>
-      </motion.div>
+          <Link href="/">
+            <Button variant="linkHover2">Home</Button>
+          </Link>
+        </motion.div>
         <motion.main
           className="w-full rounded-t-lg border p-4 py-6 shadow-lg sm:py-12"
           variants={fadeInUp}

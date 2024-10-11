@@ -160,7 +160,7 @@ export default function LifeChecklist() {
         </motion.main>
 
         <motion.div
-          className="light:bg-white mt-4 mb-8 rounded-b-lg border p-6 shadow-sm"
+          className="light:bg-white mb-8 mt-4 rounded-b-lg border p-6 shadow-sm"
           variants={fadeInUp}
         >
           <div className="mb-2 flex items-center justify-between">
@@ -209,7 +209,7 @@ export default function LifeChecklist() {
                   />
                   <label
                     htmlFor={item.id}
-                    className="flex-grow cursor-pointer text-lg"
+                    className="grow cursor-pointer text-lg"
                   >
                     {item.label}
                   </label>
