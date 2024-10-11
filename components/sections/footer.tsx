@@ -83,21 +83,11 @@ export function Footer() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.3 }}
         >
-          <Link href="/home" passHref legacyBehavior>
-            <Button
-              variant="link"
-              className="text-primary hover:text-primary/80"
-            >
-              Home
-            </Button>
+          <Link href="/">
+            <Button variant="linkHover1">Home</Button>
           </Link>
-          <Link href="/privacy" passHref legacyBehavior>
-            <Button
-              variant="link"
-              className="text-primary hover:text-primary/80"
-            >
-              Privacy policy
-            </Button>
+          <Link href="/privacy">
+            <Button variant="linkHover1">Privacy policy</Button>
           </Link>
         </motion.nav>
       </div>

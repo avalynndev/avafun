@@ -12,6 +12,26 @@ export const games: InteractiveElement[] = [
     backgroundUrl: "https://neal.fun/link-images/spend.svg",
   },
   {
+    title: "password-game",
+    isDisabled: false,
+    backgroundUrl: "https://neal.fun/link-images/password-game.svg",
+  },
+  {
+    title: "life-checklist",
+    isDisabled: false,
+    backgroundUrl: "https://neal.fun/link-images/life-checklist.svg",
+  },
+  {
+    title: "progress",
+    isDisabled: false,
+    backgroundUrl: "https://neal.fun/link-images/progress.svg",
+  },
+  {
+    title: "infinite-craft",
+    isDisabled: true,
+    backgroundUrl: "https://neal.fun/link-images/infinite-craft.svg",
+  },
+  {
     title: "auction-game",
     isDisabled: true,
     backgroundUrl: "https://neal.fun/link-images/auction-game.svg",
@@ -20,26 +40,6 @@ export const games: InteractiveElement[] = [
     title: "sell-sell-sell",
     isDisabled: true,
     backgroundUrl: "https://neal.fun/link-images/sell-sell-sell.svg",
-  },
-  {
-    title: "password-game",
-    isDisabled: true,
-    backgroundUrl: "https://neal.fun/link-images/password-game.svg",
-  },
-  {
-    title: "life-checklist",
-    isDisabled: true,
-    backgroundUrl: "https://neal.fun/link-images/life-checklist.svg",
-  },
-  {
-    title: "progress",
-    isDisabled: true,
-    backgroundUrl: "https://neal.fun/link-images/progress.svg",
-  },
-  {
-    title: "infinite-craft",
-    isDisabled: true,
-    backgroundUrl: "https://neal.fun/link-images/infinite-craft.svg",
   },
   /**  {
     title: "2048",

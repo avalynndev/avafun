@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <div className="mx-auto my-4 max-w-7xl items-center justify-center text-center">
+    <div className="mx-auto my-2 max-w-7xl items-center justify-center text-center">
       <section className="py-10">
         <motion.div
           className="mx-auto max-w-3xl"
