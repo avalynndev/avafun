@@ -26,7 +26,7 @@ function Receipt() {
 
   return (
     <Card className="gap-4 p-4 px-32">
-      <div className="md:mx-64">
+      <div className="lg:mx-64">
         <div className="flex justify-center">
           <h2 className="pb-4 text-center text-2xl font-bold">Your Receipt</h2>
         </div>

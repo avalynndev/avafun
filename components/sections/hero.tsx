@@ -1,21 +1,34 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
     <div className="mx-auto my-4 max-w-7xl items-center justify-center text-center">
       <section className="py-10">
-        <div className="mx-auto max-w-3xl">
+        <motion.div
+          className="mx-auto max-w-3xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <Image
             src="/logo.svg"
             alt="logo"
             height={82}
             width={200}
-            className="mx-auto"
+            className="mx-auto dark:invert"
           />
-        </div>
-        <p className="mx-auto max-w-3xl text-balance text-muted-foreground sm:text-lg">
+        </motion.div>
+        <motion.p
+          className="mx-auto max-w-3xl text-balance text-muted-foreground sm:text-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
           a tiny website by avalynndev
-        </p>
+        </motion.p>
       </section>
     </div>
   );

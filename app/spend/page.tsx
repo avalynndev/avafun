@@ -1,12 +1,27 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { geistSans } from "@/lib/fonts";
 import { useAppSelector } from "@/lib/hooks";
+import { Button } from "@/components/ui/button";
 import NumberTicker from "@/components/ui/number-ticker";
 import Products from "@/components/spend/products";
 import Receipt from "@/components/spend/receipt";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+};
+
+const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.5 },
+};
 
 export default function Spend() {
   const currentMoney = useAppSelector(
@@ -14,39 +29,63 @@ export default function Spend() {
   );
 
   return (
-    <main
-      className={`${geistSans.className} mx-auto flex max-w-6xl flex-col items-center pt-10`}
+    <motion.main
+      className={`${geistSans.className} mx-auto flex max-w-6xl flex-col items-center px-4 pt-10`}
+      initial="initial"
+      animate="animate"
+      variants={{
+        initial: { opacity: 0 },
+        animate: { opacity: 1, transition: { staggerChildren: 0.1 } },
+      }}
     >
-      <div className="text-balance pb-10">
-        <a href="/" className="text-gray-400 hover:underline">
-          Home
-        </a>
-      </div>
-      <main className="w-full rounded-t-lg border p-4 py-12 shadow-lg">
+      <motion.div className="text-balance pb-4 sm:pb-10" variants={fadeInUp}>
+        <Link href="/">
+          <Button variant="linkHover2">Home</Button>
+        </Link>
+      </motion.div>
+
+      <motion.main
+        className="w-full rounded-t-lg border p-4 py-6 shadow-lg sm:py-12"
+        variants={fadeInUp}
+      >
         <div className="mb-6 text-center">
-          <Image
-            src="https://neal.fun/spend/billgates.jpg"
-            alt="Profile picture"
-            width={150}
-            height={150}
-            className="mx-auto mb-4 rounded-full"
-          />
-          <h2 className="mb-4 text-3xl font-bold">
+          <motion.div variants={fadeIn}>
+            <Image
+              src="https://neal.fun/spend/billgates.jpg"
+              alt="Profile picture"
+              width={120}
+              height={120}
+              className="mx-auto mb-4 rounded-full sm:h-[150px] sm:w-[150px]"
+            />
+          </motion.div>
+          <motion.h2
+            className="mb-4 text-2xl font-bold sm:text-3xl"
+            variants={fadeInUp}
+          >
             Spend Bill Gates&apos; Money
-          </h2>
+          </motion.h2>
         </div>
-      </main>
-      <div className="z-sticky fixed sticky inset-x-0 top-0 z-50 my-2 flex h-20 w-full items-center justify-center rounded-b-md bg-green-400 text-white shadow-md">
-        <p className="text-4xl font-medium">
+      </motion.main>
+
+      <motion.div
+        className="z-sticky fixed sticky inset-x-0 top-0 z-50 my-2 flex h-16 w-full items-center justify-center rounded-b-md bg-green-400 text-white shadow-md sm:h-20"
+        variants={fadeIn}
+      >
+        <p className="text-3xl font-medium sm:text-4xl">
           $ <NumberTicker className="text-white" value={currentMoney} />
         </p>
-      </div>
-      <div className="flex justify-center">
+      </motion.div>
+
+      <motion.div
+        className="flex w-full flex-col justify-center px-2 sm:flex-row sm:px-4"
+        variants={fadeInUp}
+      >
         <Products />
-      </div>
-      <div className="w-full py-8">
+      </motion.div>
+
+      <motion.div className="w-full py-4 sm:py-8" variants={fadeInUp}>
         <Receipt />
-      </div>
-    </main>
+      </motion.div>
+    </motion.main>
   );
 }

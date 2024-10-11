@@ -1,4 +1,5 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
 <!---
 - [avafun](https://github.com/avalynndev/avafun) - A web platform featuring a variety of interactive games for an engaging user experience.
 - [document-viewer](https://github.com/avalynndev/document-viewer) - View a wide range of file formats seamlessly on this platform for free.

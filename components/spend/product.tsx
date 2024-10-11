@@ -60,8 +60,8 @@ function Product({ id }: { id: string }) {
   };
 
   return (
-    <Card className="flex size-full flex-col items-center border border-gray-200 p-4 text-black dark:bg-blue-50">
-      <div className="relative h-40 w-40 sm:h-48 sm:w-48">
+    <Card className="flex w-full flex-col items-center border border-gray-200 p-4 text-black dark:bg-blue-50">
+      <div className="relative h-32 w-32 sm:h-40 sm:w-40">
         <Image
           src={item.image}
           alt={item.productName}
@@ -73,7 +73,7 @@ function Product({ id }: { id: string }) {
       <p className="mt-2 text-lg sm:text-xl">${item.productPrice}</p>
       <div className="mt-4 flex w-full flex-col items-center space-y-4 sm:flex-row sm:justify-between sm:space-x-4 sm:space-y-0">
         <Button
-          className="h-10 w-24 bg-red-500"
+          className="h-10 w-full bg-red-500 sm:w-24"
           disabled={!isSellable}
           variant="destructive"
           onClick={sell}
