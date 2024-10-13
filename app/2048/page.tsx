@@ -1,46 +1,83 @@
-import Image from "next/image";
+"use client";
 
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Board from "@/components/2048/board";
 import GameProvider from "@/components/2048/game-context";
 import Score from "@/components/2048/score";
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+};
+
+const staggerChildren = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const scaleIn = {
+  initial: { scale: 0.9, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  transition: { type: "spring", stiffness: 300, damping: 20 },
+};
+
+const rotateIn = {
+  initial: { rotate: -5, opacity: 0 },
+  animate: { rotate: 0, opacity: 1 },
+  transition: { duration: 0.5 },
+};
+
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 md:py-12 lg:px-8">
-      <GameProvider>
-        <Card className="bg-background/50 backdrop-blur">
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="text-4xl font-bold">2048</CardTitle>
-            <Score />
-          </CardHeader>
-          <CardContent className="flex items-center justify-center">
-            <Board />
-          </CardContent>
-        </Card>
-
-        <footer className="mt-8 text-center font-semibold md:flex md:flex-row-reverse md:items-center md:text-left">
-          <div className="mb-4 flex justify-center md:mb-0 md:justify-end">
-            <a
-              href="https://github.com/hakamraza/nextjs-2048-game"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary"
-            >
-              <Image
-                src="social-github.svg"
-                alt="2048-in-react on GitHub"
-                width={32}
-                height={32}
-                className="m-2 align-middle md:ml-4 md:mr-0"
-              />
-            </a>
-          </div>
-          <p className="text-sm text-muted-foreground md:mr-4">
-            Created with Next.js and shadcn/ui
-          </p>
-        </footer>
-      </GameProvider>
-    </div>
+    <motion.div
+      className="px-4 py-8 sm:px-6 lg:px-8"
+      initial="initial"
+      animate="animate"
+      variants={staggerChildren}
+    >
+      <div className="mx-auto max-w-4xl">
+        <motion.div className="text-balance pb-4 sm:pb-10" variants={fadeInUp}>
+          <Link href="/">
+            <Button variant="linkHover2">Home</Button>
+          </Link>
+        </motion.div>
+      </div>
+      <motion.div
+        className="mx-auto w-full max-w-2xl px-4 py-8 sm:px-6 md:py-12 lg:px-8"
+        variants={scaleIn}
+      >
+        <GameProvider>
+          <Card className="bg-background/80 shadow-xl backdrop-blur">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+              <motion.div variants={rotateIn}>
+                <CardTitle className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl font-bold text-transparent">
+                  2048
+                </CardTitle>
+              </motion.div>
+              <motion.div variants={fadeInUp}>
+                <Score />
+              </motion.div>
+            </CardHeader>
+            <CardContent className="flex items-center justify-center p-6">
+              <motion.div
+                variants={scaleIn}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Board />
+              </motion.div>
+            </CardContent>
+          </Card>
+        </GameProvider>
+      </motion.div>
+    </motion.div>
   );
 }
