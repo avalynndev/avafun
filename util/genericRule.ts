@@ -2,10 +2,6 @@ import React from "react";
 import { TextController } from "@/util/text-controller";
 import JSXStyle from "styled-jsx/style";
 
-
-
-
-
 export class GenericRule extends React.Component {
   static fulfilled = false;
   static instance: GenericRule | null = null;

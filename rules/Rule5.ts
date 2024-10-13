@@ -1,7 +1,6 @@
 import { generateHighlightString, getAllRegexMatches } from "@/util/functions";
 import { GenericRule } from "@/util/genericRule";
 
-
 export class Rule5 extends GenericRule {
   static instance = new Rule5();
   number: number;

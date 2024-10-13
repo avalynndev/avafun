@@ -1,5 +1,5 @@
 import React from "react";
-import { GenericRule } from '@/util/genericRule';
+import { GenericRule } from "@/util/genericRule";
 
 export class Rule8 extends GenericRule {
   static instance: Rule8 = new Rule8();
@@ -22,17 +22,21 @@ export class Rule8 extends GenericRule {
     const text = this.textController.getClear();
     const lowercase = text.toLowerCase();
 
-    this.fulfilled = 
-      lowercase.includes('pepsi') || 
-      lowercase.includes('starbucks') || 
-      lowercase.includes('shell');
+    this.fulfilled =
+      lowercase.includes("pepsi") ||
+      lowercase.includes("starbucks") ||
+      lowercase.includes("shell");
   }
 
-  render(): JSX.Element {  
+  render(): JSX.Element {
     return (
       <div className="sponsors">
         <img className="sponsor pepsi" src="./sponsors/pepsi.svg" alt="pepsi" />
-        <img className="sponsor starbucks" src="./sponsors/starbucks.svg" alt="starbucks" />
+        <img
+          className="sponsor starbucks"
+          src="./sponsors/starbucks.svg"
+          alt="starbucks"
+        />
         <img className="sponsor shell" src="./sponsors/shell.svg" alt="shell" />
       </div>
     );

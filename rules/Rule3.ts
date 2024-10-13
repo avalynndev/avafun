@@ -1,9 +1,5 @@
 import { GenericRule } from "@/util/genericRule";
 
-
-
-
-
 export class Rule3 extends GenericRule {
   static instance = new Rule3();
   number: number;

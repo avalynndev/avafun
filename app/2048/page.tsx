@@ -7,14 +7,14 @@ import Score from "@/components/2048/score";
 
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 md:py-12 lg:px-8">
       <GameProvider>
         <Card className="bg-background/50 backdrop-blur">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle className="text-4xl font-bold">2048</CardTitle>
             <Score />
           </CardHeader>
-          <CardContent className="items-center justify-center flex">
+          <CardContent className="flex items-center justify-center">
             <Board />
           </CardContent>
         </Card>

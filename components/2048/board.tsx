@@ -52,20 +52,20 @@ export default function Board() {
     [moveTiles],
   );
 
- const renderGrid = () => {
-  const cells: JSX.Element[] = [];
-  const totalCellsCount = 10;
+  const renderGrid = () => {
+    const cells: JSX.Element[] = [];
+    const totalCellsCount = 10;
 
-  for (let index = 0; index < totalCellsCount; index += 1) {
-    cells.push(
-      <div
-        className="m-1 h-16 w-16 rounded-md bg-none md:m-2 md:h-24 md:w-24"
-        key={index}
-      />
-    );
-  }
-  return cells
-}
+    for (let index = 0; index < totalCellsCount; index += 1) {
+      cells.push(
+        <div
+          className="m-1 h-16 w-16 rounded-md bg-none md:m-2 md:h-24 md:w-24"
+          key={index}
+        />,
+      );
+    }
+    return cells;
+  };
 
   const renderTiles = () => {
     return getTiles().map((tile: TileType) => (
@@ -92,7 +92,7 @@ export default function Board() {
     <MobileSwiper onSwipe={handleSwipe}>
       <Card className="bg-secondary p-2 md:p-4">
         <div className="relative w-[calc(16rem+1.25rem)] md:w-[calc(24rem+2.5rem)]">
-            {renderTiles()}
+          {renderTiles()}
           <div className="flex flex-wrap rounded-lg">{renderGrid()}</div>
         </div>
       </Card>
