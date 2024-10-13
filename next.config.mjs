@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.crazygames.com",
+        port: "",
+        pathname: "/games/2048/**",
+      },
     ],
   },
 };

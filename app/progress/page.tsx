@@ -23,6 +23,7 @@ const fadeInUp = {
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5 },
 };
+
 export default function Progress() {
   const [time, setTime] = useState(new Date());
   const [scrollHeight, setScrollHeight] = useState(0);

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import products from "@/config/products.json";
+import products from "@/data/products.json";
 
 const data = products.products;
 

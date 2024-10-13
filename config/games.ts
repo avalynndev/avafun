@@ -12,11 +12,6 @@ export const games: InteractiveElement[] = [
     backgroundUrl: "https://neal.fun/link-images/spend.svg",
   },
   {
-    title: "password-game",
-    isDisabled: false,
-    backgroundUrl: "https://neal.fun/link-images/password-game.svg",
-  },
-  {
     title: "life-checklist",
     isDisabled: false,
     backgroundUrl: "https://neal.fun/link-images/life-checklist.svg",
@@ -27,10 +22,21 @@ export const games: InteractiveElement[] = [
     backgroundUrl: "https://neal.fun/link-images/progress.svg",
   },
   {
+    title: "2048",
+    isDisabled: false,
+    backgroundUrl: "/2048.svg",
+  },
+  {
+    title: "password-game",
+    isDisabled: true,
+    backgroundUrl: "https://neal.fun/link-images/password-game.svg",
+  },
+  {
     title: "infinite-craft",
     isDisabled: true,
     backgroundUrl: "https://neal.fun/link-images/infinite-craft.svg",
   },
+
   {
     title: "auction-game",
     isDisabled: true,
@@ -41,12 +47,7 @@ export const games: InteractiveElement[] = [
     isDisabled: true,
     backgroundUrl: "https://neal.fun/link-images/sell-sell-sell.svg",
   },
-  /**  {
-    title: "2048",
-    iframe: "",
-    isDisabled: false,
-    backgroundUrl: "",
-  },
+  /** 
   {
     title: "8-ball-pool",
     iframe: "https://prod-web-pool.miniclip.com/mc?localmc",

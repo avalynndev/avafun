@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image"
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -41,9 +41,11 @@ export function Games() {
               whileHover={element.isDisabled ? {} : { scale: 1.05 }}
               whileTap={element.isDisabled ? {} : { scale: 0.95 }}
             >
-              <img
+              <Image
                 src={element.backgroundUrl}
                 alt={element.title}
+                height={200}
+                width={400}
                 className="max-h-full max-w-full object-cover"
               />
             </motion.div>
