@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-
-import { robotoCondensed } from "@/lib/fonts";
-
 import "@/styles/globals.css";
 
 import { Footer } from "@/components/sections/footer";
@@ -21,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${robotoCondensed.className} min-h-screen bg-background antialiased`}
+        className="min-h-screen bg-background antialiased"
       >
         <div className="flex min-h-screen flex-col">
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>

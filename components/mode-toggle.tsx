@@ -19,7 +19,6 @@ export function ModeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="outline"
           size="icon"
           className="gap-2 border px-4 text-[15px]"
         >

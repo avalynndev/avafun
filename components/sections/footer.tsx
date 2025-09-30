@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 
 const buttonVariants = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 12 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.3 },
 };
@@ -16,20 +16,20 @@ const buttonVariants = {
 export function Footer() {
   return (
     <motion.footer
-      className="bg-background px-4 py-8 sm:px-6 lg:px-8"
+      className="bg-background px-4 py-10 sm:px-6 lg:px-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto max-w-3xl text-center">
-        <div className="mb-4 flex flex-wrap justify-center gap-4">
+      <div className="mx-auto max-w-4xl text-center">
+        <div className="mb-6 flex flex-wrap justify-center gap-3">
           <motion.div
             variants={buttonVariants}
             initial="initial"
             animate="animate"
             transition={{ delay: 0.1 }}
           >
-            <Button variant="outline" asChild>
+            <Button variant="secondary" asChild>
               <a
                 href="https://github.com/avalynndev/avafun"
                 target="_blank"
@@ -46,7 +46,7 @@ export function Footer() {
             animate="animate"
             transition={{ delay: 0.2 }}
           >
-            <Button variant="outline" asChild>
+            <Button variant="secondary" asChild>
               <a
                 href="https://x.com/avalynndev"
                 target="_blank"
@@ -77,8 +77,9 @@ export function Footer() {
             <ModeToggle />
           </motion.div>
         </div>
+
         <motion.nav
-          className="flex flex-wrap justify-center gap-4"
+          className="mb-4 flex flex-wrap justify-center gap-6 text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.3 }}
@@ -90,10 +91,14 @@ export function Footer() {
           </Link>
           <Link href="/privacy">
             <Button variant="link" effect="underline">
-              Privacy policy
+              Privacy Policy
             </Button>
           </Link>
         </motion.nav>
+
+        <p className="text-xs text-muted-foreground">
+          © {new Date().getFullYear()} Avafun. All rights reserved.
+        </p>
       </div>
     </motion.footer>
   );
