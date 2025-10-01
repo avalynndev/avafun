@@ -23,11 +23,11 @@ export const games: InteractiveElement[] = [
     backgroundUrl: "/games/spend.svg",
   },
   {
-    id: "stack-tower",
-    title: "Stack Tower",
+    id: "type-test",
+    title: "Type Test",
     price: 30,
     isDisabled: false,
-    backgroundUrl: "/games/stack-tower.svg",
+    backgroundUrl: "/games/type-test.svg",
   },
   {
     id: "life-checklist",
@@ -49,6 +49,27 @@ export const games: InteractiveElement[] = [
     price: 30,
     isDisabled: false,
     backgroundUrl: "/games/progress.svg",
+  },
+  {
+    id: "stimulation-clicker",
+    title: "Stimulation Clicker",
+    price: 20,
+    isDisabled: false,
+    backgroundUrl: "/games/stimulation-clicker.svg",
+  },
+  {
+    id: "tic-tac-toe",
+    title: "Tic Tac Toe",
+    price: 20,
+    isDisabled: false,
+    backgroundUrl: "/games/tic-tac-toe.svg",
+  },
+  {
+    id: "snake-game",
+    title: "Snake Game",
+    price: 20,
+    isDisabled: false,
+    backgroundUrl: "/games/snake-game.svg",
   },
   {
     id: "2048",
@@ -77,5 +98,19 @@ export const games: InteractiveElement[] = [
     price: 50,
     isDisabled: false,
     backgroundUrl: "/games/auction-game.svg",
+  },
+  {
+    id: "sell-sell-sell",
+    title: "Sell Sell Sell",
+    price: 35,
+    isDisabled: false,
+    backgroundUrl: "/games/sell-sell-sell.svg",
+  },
+  {
+    id: "speed",
+    title: "Speed",
+    price: 35,
+    isDisabled: false,
+    backgroundUrl: "/games/speed.svg",
   },
 ];
