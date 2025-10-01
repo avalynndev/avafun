@@ -16,7 +16,7 @@ const buttonVariants = {
 export function Footer() {
   return (
     <motion.footer
-      className="bg-background px-4 py-10 sm:px-6 lg:px-8"
+      className="px-4 py-10 sm:px-6 lg:px-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
