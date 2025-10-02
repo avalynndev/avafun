@@ -238,11 +238,11 @@ export default function SpeedPage() {
           <div className="max-w-lg">
             <p className="text-sm text-gray-700 mb-3">But you . . .</p>
             <p className="text-sm text-gray-600 mb-3">
-              haven't a clue that we are going in any particular direction or
+              haven&apos;t a clue that we are going in any particular direction or
               even moving . . .
             </p>
             <p className="text-lg font-bold text-gray-900">
-              It's only . . . 0 mph
+              It&apos;s only . . . 0 mph
             </p>
           </div>
         </motion.section>
