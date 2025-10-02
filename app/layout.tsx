@@ -7,7 +7,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { CoinProvider } from "@/components/coin-context";
 import { CoinDisplay } from "@/components/coin-display";
 import { StoreProvider } from "@/components/store-provider";
-import { ViewTransitions } from "next-view-transitions";
 import { siteConfig } from "@/config/site";
 import { Toaster } from "sonner";
 
@@ -70,30 +69,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
-        <StoreProvider>
-          <body className="min-h-screen bg-background antialiased">
-            <div className="flex flex-col">
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="light"
-                enableSystem
-              >
-                <Toaster />
-                <main className="flex-1">
-                  <CoinProvider>
-                    <CoinDisplay />
-                    {children}
-                  </CoinProvider>
-                </main>
-                <Footer />
-                <TailwindIndicator />
-              </ThemeProvider>
-            </div>
-          </body>
-        </StoreProvider>
-      </html>
-    </ViewTransitions>
+    <html lang="en" suppressHydrationWarning>
+      <StoreProvider>
+        <body className="min-h-screen bg-background antialiased">
+          <div className="flex flex-col">
+            <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+              <Toaster />
+              <main className="flex-1">
+                <CoinProvider>
+                  <CoinDisplay />
+                  {children}
+                </CoinProvider>
+              </main>
+              <Footer />
+              <TailwindIndicator />
+            </ThemeProvider>
+          </div>
+        </body>
+      </StoreProvider>
+    </html>
   );
 }
