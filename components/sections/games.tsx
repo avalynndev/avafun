@@ -58,7 +58,7 @@ export function Games() {
               <AlertDialogTrigger asChild>
                 <motion.div
                   onClick={() => setSelectedGame(element)}
-                  className={`group relative flex h-36 cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 ${
+                  className={`group relative flex h-34 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-card shadow-sm transition-all duration-300 ${
                     element.isDisabled
                       ? "cursor-not-allowed opacity-50"
                       : "hover:shadow-md"

@@ -4,17 +4,23 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { geistSans } from "@/lib/fonts";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }, // same as GamePage
+  transition: { duration: 0.5 },
+};
+const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.5 },
 };
 
-// Speeds in mph
 const SPEEDS = {
-  tectonicPlates: 0.00000285, // ~2.5 cm/year in mph
-  earthRotation: 1000, // at equator
+  tectonicPlates: 0.00000285,
+  earthRotation: 1000,
   earthOrbit: 67000,
   barnardsStar: 241500,
   milkyWayOrbit: 483000,
@@ -93,7 +99,7 @@ const speedData: SpeedData[] = [
     description:
       "it is a massive cluster 150,000 light years away. Getting to the center of the super cluster would be very inconvenient.",
     speedKey: "superCluster",
-    image: "/speed/cluster.jpg",
+    image: "/speed/cluster.jpeg",
     alt: "Star cluster",
   },
   {
@@ -123,7 +129,22 @@ function formatElapsed(seconds: number): string {
 }
 
 export default function SpeedPage() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    const key = searchParams.get("key");
+    const storedKey = sessionStorage.getItem(`speed-session`);
+
+    if (key && storedKey && key === storedKey) {
+      setValid(true);
+      sessionStorage.removeItem(`speed-session`);
+    } else {
+      router.replace("/");
+    }
+  }, [router, searchParams]);
 
   useEffect(() => {
     const startTime = Date.now();
@@ -142,9 +163,15 @@ export default function SpeedPage() {
     return speedMph * hours;
   };
 
+  function milesToNanometers(miles: number): number {
+    return miles * 1.60934e9;
+  }
+
+  if (!valid) return null;
+
   return (
     <motion.main
-      className="mx-auto flex max-w-3xl flex-col items-center px-4 pt-10 pb-20"
+      className={`${geistSans.className} mx-auto flex max-w-4xl flex-col items-center px-4 pt-10`}
       initial="initial"
       animate="animate"
       variants={{
@@ -152,42 +179,54 @@ export default function SpeedPage() {
         animate: { opacity: 1, transition: { staggerChildren: 0.1 } },
       }}
     >
-      <motion.div className="mb-6 w-full" variants={fadeInUp}>
+      <motion.div className="text-balance pb-4 sm:pb-10" variants={fadeInUp}>
         <Link href="/">
-          <Button variant="link" className="px-0">
-            ← Back Home
-          </Button>
+          <Button variant="link">← Back Home</Button>
         </Link>
       </motion.div>
 
-      <motion.header className="w-full mb-8 text-center" variants={fadeInUp}>
-        <h1 className="text-3xl font-bold mb-2">NEAL.FUN</h1>
-        <div className="bg-emerald-500 text-white py-3 px-4 rounded mt-4">
-          <h2 className="text-xl font-semibold">How Fast Are You Moving?</h2>
-        </div>
-      </motion.header>
-
-      <motion.div
-        className="w-full mb-8 text-center text-gray-600"
+      <motion.main
+        className="w-full rounded-t-lg border p-4 py-6 shadow-lg sm:py-12"
         variants={fadeInUp}
       >
-        <p className="text-lg">
-          It has been{" "}
-          <span className="font-bold text-gray-900">
-            {formatElapsed(elapsedSeconds)}
-          </span>
-        </p>
+        <div className="text-center">
+          <motion.h2
+            className="text-2xl font-bold sm:text-3xl"
+            variants={fadeInUp}
+          >
+            How Fast Are You Moving?
+          </motion.h2>
+        </div>
+      </motion.main>
+
+      <motion.div
+        className="z-sticky sticky font-bold inset-x-0 top-0 z-50 my-2 flex h-16 w-full items-center justify-center rounded-b-md bg-secondary text-white shadow-md sm:h-20"
+        variants={fadeIn}
+      >
+        It has been {formatElapsed(elapsedSeconds)}
       </motion.div>
 
       <motion.div
         className="w-full space-y-12"
         variants={{
-          animate: { transition: { staggerChildren: 0.1 } }, // same stagger as GamePage
+          animate: { transition: { staggerChildren: 0.1 } },
         }}
       >
         {speedData.map((item, index) => {
           const speed = SPEEDS[item.speedKey];
           const distance = calculateDistance(speed, elapsedSeconds);
+
+          let displayDistance: string;
+          let unit: string;
+
+          if (item.speedKey === "tectonicPlates") {
+            const nm = milesToNanometers(distance);
+            displayDistance = formatNumber(nm);
+            unit = "nanometers";
+          } else {
+            displayDistance = formatNumber(distance);
+            unit = "miles";
+          }
 
           return (
             <motion.section
@@ -204,25 +243,22 @@ export default function SpeedPage() {
               </div>
 
               <div className="max-w-lg">
-                <p className="text-sm text-gray-700 mb-3">{item.title}</p>
+                <p className="text-sm mb-3">{item.title}</p>
                 {item.description && (
-                  <p className="text-sm text-gray-600 mb-3">
-                    {item.description}
-                  </p>
+                  <p className="text-sm">{item.description}</p>
                 )}
-                <p className="text-lg font-bold text-gray-900">
-                  {formatNumber(distance)} miles
+                <p className="text-lg font-bold mt-1">
+                  {displayDistance} {unit}
                 </p>
               </div>
 
               {index < speedData.length - 1 && (
-                <p className="mt-8 text-sm text-gray-500">But wait...</p>
+                <p className="mt-8 text-sm">But wait...</p>
               )}
             </motion.section>
           );
         })}
 
-        {/* Final section */}
         <motion.section
           className="flex flex-col items-center text-center"
           variants={fadeInUp}
@@ -236,14 +272,12 @@ export default function SpeedPage() {
           </div>
 
           <div className="max-w-lg">
-            <p className="text-sm text-gray-700 mb-3">But you . . .</p>
-            <p className="text-sm text-gray-600 mb-3">
-              haven&apos;t a clue that we are going in any particular direction or
-              even moving . . .
+            <p className="text-sm mb-3">But you . . .</p>
+            <p className="text-sm mb-3">
+              haven&apos;t a clue that we are going in any particular direction
+              or even moving . . .
             </p>
-            <p className="text-lg font-bold text-gray-900">
-              It&apos;s only . . . 0 mph
-            </p>
+            <p className="text-lg font-bold">It&apos;s only . . . 0 mph</p>
           </div>
         </motion.section>
       </motion.div>

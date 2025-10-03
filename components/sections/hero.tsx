@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="relative mx-auto w-full max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
       <motion.div
-        className="mx-auto flex max-w-3xl items-center justify-center rounded-2xl bg-muted/30 px-6 pb-6 backdrop-blur-sm"
+        className="mx-auto flex max-w-3xl border dark:border-none items-center justify-center rounded-2xl bg-muted/30 px-6 pb-6 backdrop-blur-sm"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}

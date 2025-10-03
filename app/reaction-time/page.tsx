@@ -8,8 +8,8 @@ export default function Page() {
   return (
     <Suspense
       fallback={
-        <div>
-          <ReloadIcon className="h-4 w-4 animate-spin text-muted-foreground" />
+        <div className="flex items-center justify-center min-h-screen">
+          <ReloadIcon className="h-12 w-12 animate-spin text-foreground" />
         </div>
       }
     >
