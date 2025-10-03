@@ -12,7 +12,7 @@ export const games: InteractiveElement[] = [
     id: "flappy-bird",
     title: "Flappy Bird",
     price: 20,
-    isDisabled: true,
+    isDisabled: false,
     backgroundUrl: "/games/flappy-bird.svg",
   },
   {
@@ -49,13 +49,6 @@ export const games: InteractiveElement[] = [
     price: 30,
     isDisabled: false,
     backgroundUrl: "/games/progress.svg",
-  },
-  {
-    id: "stimulation-clicker",
-    title: "Stimulation Clicker",
-    price: 15,
-    isDisabled: true,
-    backgroundUrl: "/games/stimulation-clicker.svg",
   },
   {
     id: "tic-tac-toe",
