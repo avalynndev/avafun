@@ -247,7 +247,7 @@ export default function GamePage() {
 
         if (key && storedKey && key === storedKey) {
             setValid(true);
-            //sessionStorage.removeItem(`flappy-bird-session`);
+            sessionStorage.removeItem(`flappy-bird-session`);
         } else {
             router.replace("/");
         }
@@ -284,7 +284,7 @@ export default function GamePage() {
                 </div>
             </motion.main>
             <motion.main
-                className="w-full rounded-b-lg border p-4 py-6 shadow-lg"
+                className="w-full rounded-lg border p-4 py-6 shadow-lg mt-6"
                 variants={fadeInUp}
             >
                 <div className="flex items-center justify-between mb-4">
@@ -323,8 +323,8 @@ export default function GamePage() {
                                     </div>
                                 </div>
                                 <div>
-                                    <h2 className="text-2xl font-bold    mb-2">Ready to Play?</h2>
-                                    <p className="">Click or tap to start</p>
+                                    <h2 className="text-2xl font-bold text-black mb-2">Ready to Play?</h2>
+                                    <p className="text-black">Click or tap to start</p>
                                 </div>
                                 <Button
                                     size="lg"
@@ -342,18 +342,18 @@ export default function GamePage() {
                             <Card className="p-8 max-w-sm mx-4 text-center space-y-4 bg-white/95">
                                 <div>
                                     <h2 className="text-3xl font-bold text-gray-900 mb-3">Game Over!</h2>
-                                    <div className="space-y-2">
+                                    <div className="space-y-2 text-black">
                                         <p className="text-5xl font-bold text-primary">{score}</p>
-                                        <p className="text-gray-600">Final Score</p>
+                                        <p>Final Score</p>
                                     </div>
                                     {score === highScore && score > 0 && (
-                                        <div className="mt-4 flex items-center justify-center gap-2 text-yellow-600 font-semibold">
+                                        <div className="text-black mt-4 flex items-center justify-center gap-2 text-yellow-600 font-semibold">
                                             <Trophy className="w-5 h-5" />
                                             <span>New High Score!</span>
                                         </div>
                                     )}
                                     {highScore > 0 && score !== highScore && (
-                                        <p className="text-gray-500 mt-2">Best: {highScore}</p>
+                                        <p className="text-black mt-2">Best: {highScore}</p>
                                     )}
                                 </div>
                                 <Button
@@ -369,7 +369,7 @@ export default function GamePage() {
                     )}
                 </div>
 
-                <div className="mt-4 text-center text-sm text-gray-500">
+                <div className="mt-4 text-center text-sm">
                     <p>Use Space, Arrow Up, or click/tap the game to flap</p>
                 </div>
             </motion.main>

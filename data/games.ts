@@ -89,7 +89,7 @@ export const games: InteractiveElement[] = [
     id: "memory-match",
     title: "Memory Match",
     price: 35,
-    isDisabled: true,
+    isDisabled: false,
     backgroundUrl: "/games/memory-match.svg",
   },
   {
