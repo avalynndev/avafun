@@ -71,6 +71,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Avafun" />
+      </head>
       <StoreProvider>
         <body className="min-h-screen bg-background antialiased">
           <div className="flex flex-col">

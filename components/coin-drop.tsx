@@ -30,7 +30,7 @@ export function CoinDrop() {
       if (Math.random() < 0.5) {
         setIdCounter((prev) => prev + 1);
 
-        let coins = Math.floor(Math.random() * 51);
+        let coins = Math.floor(Math.random() * 50) + 1;
         if (Math.random() < 0.001) coins = 1011;
 
         const x = Math.random() * (window.innerWidth - 100);
@@ -44,7 +44,7 @@ export function CoinDrop() {
           setDrops((prev) => prev.filter((d) => d.id !== newDrop.id));
         }, 4000);
       }
-    }, 7000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [idCounter]);
@@ -68,6 +68,7 @@ export function CoinDrop() {
         >
           <Button
             variant="ghost"
+            size="icon"
             className={
               drop.coins === 1011
                 ? "bg-yellow-500 text-white animate-bounce"

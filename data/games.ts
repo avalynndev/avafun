@@ -91,4 +91,18 @@ export const games: InteractiveElement[] = [
     isDisabled: false,
     backgroundUrl: "/games/speed.svg",
   },
+  {
+    id: "tic-tac-toe",
+    title: "Tic Tac Toe",
+    price: 0,
+    isDisabled: true,
+    backgroundUrl: "/games/tic-tac-toe.svg",
+  },
+  {
+    id: "type-test",
+    title: "Type Test",
+    price: 0,
+    isDisabled: true,
+    backgroundUrl: "/games/type-test.svg",
+  },
 ];

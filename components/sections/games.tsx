@@ -55,80 +55,88 @@ export function Games() {
         {games.map((element, index) => (
           <motion.div key={index} variants={itemVariants}>
             <AlertDialog>
-              <AlertDialogTrigger asChild>
-                <motion.div
-                  onClick={() => setSelectedGame(element)}
-                  className={` border border-border md:border-none group relative flex h-34 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-card shadow-sm transition-all duration-300 ${
-                    element.isDisabled
-                      ? "cursor-not-allowed opacity-50"
-                      : "hover:shadow-md"
-                  }`}
-                  aria-disabled={element.isDisabled}
-                  whileHover={element.isDisabled ? {} : { scale: 1.03 }}
-                  whileTap={element.isDisabled ? {} : { scale: 0.97 }}
-                >
+              {!element.isDisabled ? (
+                <AlertDialogTrigger asChild>
+                  <motion.div
+                    onClick={() => setSelectedGame(element)}
+                    className="border border-border md:border-none group relative flex h-34 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-card shadow-sm transition-all duration-300 hover:shadow-md"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <Image
+                      src={element.backgroundUrl}
+                      alt={element.title}
+                      height={200}
+                      width={400}
+                      className="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-90"
+                    />
+                    <div className="absolute bottom-3 md:hidden lg:block left-3 rounded-md bg-background/80 px-2 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm">
+                      {element.title}
+                    </div>
+                  </motion.div>
+                </AlertDialogTrigger>
+              ) : (
+                <motion.div className="cursor-not-allowed opacity-50 border border-border md:border-none relative flex h-34 items-center justify-center overflow-hidden rounded-lg bg-card shadow-sm">
                   <Image
                     src={element.backgroundUrl}
                     alt={element.title}
                     height={200}
                     width={400}
-                    className="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-90"
+                    className="max-h-full max-w-full object-contain"
                   />
-
                   <div className="absolute bottom-3 md:hidden lg:block left-3 rounded-md bg-background/80 px-2 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm">
                     {element.title}
                   </div>
-
-                  {element.isDisabled && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-background/60 backdrop-blur-sm">
-                      <LockIcon className="h-6 w-6 text-muted-foreground" />
-                    </div>
-                  )}
-                </motion.div>
-              </AlertDialogTrigger>
-
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>
-                    Play {selectedGame?.title}?
-                  </AlertDialogTitle>
-                  <AlertDialogDescription>
-                    This game costs{" "}
-                    <span className="font-semibold text-yellow-500">
-                      🪙 {selectedGame?.price}
-                    </span>
-                    .
-                  </AlertDialogDescription>
-                  <div className="mt-4 space-y-1 text-sm">
-                    <p>
-                      Current balance:{" "}
-                      <span className="font-medium">{coins} 🪙</span>
-                    </p>
-                    <p>
-                      After purchase:{" "}
-                      <span
-                        className={`font-medium ${
-                          coins - (selectedGame?.price ?? 0) < 0
-                            ? "text-red-500"
-                            : ""
-                        }`}
-                      >
-                        {coins - (selectedGame?.price ?? 0)} 🪙
-                      </span>
-                    </p>
+                  <div className="absolute inset-0 flex items-center justify-center bg-background/60 backdrop-blur-xs">
+                    <LockIcon className="h-6 w-6 text-muted-foreground" />
                   </div>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction
-                    onClick={handleConfirm}
-                    disabled={coins < (selectedGame?.price ?? 0)}
-                    className="bg-primary text-primary-foreground hover:bg-primary/90"
-                  >
-                    Confirm & Play
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
+                </motion.div>
+              )}
+
+              {!element.isDisabled && (
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      Play {selectedGame?.title}?
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This game costs{" "}
+                      <span className="font-semibold text-yellow-500">
+                        🪙 {selectedGame?.price}
+                      </span>
+                      .
+                    </AlertDialogDescription>
+                    <div className="mt-4 space-y-1 text-sm">
+                      <p>
+                        Current balance:{" "}
+                        <span className="font-medium">{coins} 🪙</span>
+                      </p>
+                      <p>
+                        After purchase:{" "}
+                        <span
+                          className={`font-medium ${
+                            coins - (selectedGame?.price ?? 0) < 0
+                              ? "text-red-500"
+                              : ""
+                          }`}
+                        >
+                          {coins - (selectedGame?.price ?? 0)} 🪙
+                        </span>
+                      </p>
+                    </div>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction
+                      onClick={handleConfirm}
+                      disabled={coins < (selectedGame?.price ?? 0)}
+                      className="bg-primary text-primary-foreground hover:bg-primary/90"
+                    >
+                      Confirm & Play
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              )}
             </AlertDialog>
           </motion.div>
         ))}
