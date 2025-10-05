@@ -77,8 +77,9 @@ export default function GamePage() {
             SELL! SELL! SELL!
           </motion.h2>
           <motion.p className="mt-2 text-sm text-gray-500" variants={fadeInUp}>
-            Capitalism ramped up in the 21st century, and if you're not selling,
-            you're <em>losing</em>. Here are some products that won capitalism.
+            Capitalism ramped up in the 21st century, and if you&apos;re not
+            selling, you&apos;re <em>losing</em>. Here are some products that
+            won capitalism.
           </motion.p>
         </div>
       </motion.main>
@@ -171,7 +172,9 @@ export default function GamePage() {
             capitalism.
           </p>
           <p className="mt-2 text-xl mb-8">Congratulations to the winners.</p>
-          <p className="mt-6 text-3xl font-bold">Wait, what's that? Oh no...</p>
+          <p className="mt-6 text-3xl font-bold">
+            Wait, what&apos;s that? Oh no...
+          </p>
         </motion.div>
 
         <ShakingBezos />
@@ -191,9 +194,7 @@ export default function GamePage() {
           Claim +70 Coins 🎉
         </Button>
       ) : (
-        <p className="text-sm text-gray-500">
-          Claimed +70 coins!
-        </p>
+        <p className="text-sm text-gray-500">Claimed +70 coins!</p>
       )}
     </motion.main>
   );
@@ -205,7 +206,7 @@ function ShakingBezos() {
   useEffect(() => {
     const interval = setInterval(() => {
       setRotation((prev) =>
-        prev === 0 ? (Math.random() > 0.5 ? 10 : -10) : 0
+        prev === 0 ? (Math.random() > 0.5 ? 10 : -10) : 0,
       );
     }, 200);
 

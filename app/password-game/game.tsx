@@ -68,7 +68,7 @@ export default function Home() {
   function checkRules(txt: string): void {
     if (ruleState.length === 0) return;
 
-    let rules = [...ruleState];
+    const rules = [...ruleState];
 
     if (!rules[0].unlocked && txt.length > 0) {
       rules[0].unlocked = true;
@@ -110,7 +110,7 @@ export default function Home() {
 
   function regenerateRule(num: number): void {
     num--;
-    let rules = [...ruleState];
+    const rules = [...ruleState];
     if (rules[num].regenerate) {
       rules[num].regenerate!();
       setRuleState(rules);

@@ -53,15 +53,15 @@ function SlidingPuzzle({ word }: { word: string }) {
     });
     if (!ctx || !ctx_small) return [];
 
-    let cropped_imgs: string[] = Array(9).fill("");
+    const cropped_imgs: string[] = Array(9).fill("");
 
     for (let i = 0; i < cropped_imgs.length; i++) {
-      let x = (i % 3) * 60;
-      let y = Math.floor(i / 3) * 60;
-      let imgData = ctx.getImageData(x, y, 60, 60);
+      const x = (i % 3) * 60;
+      const y = Math.floor(i / 3) * 60;
+      const imgData = ctx.getImageData(x, y, 60, 60);
       ctx_small.putImageData(imgData, 0, 0);
 
-      let data = smallCanvas.toDataURL();
+      const data = smallCanvas.toDataURL();
       cropped_imgs[i] = data;
     }
 
@@ -72,16 +72,16 @@ function SlidingPuzzle({ word }: { word: string }) {
     createWordImage();
     cropedImages.current = getCroppedImages();
 
-    let puzzle = getPuzzle();
+    const puzzle = getPuzzle();
     setPuzzleGrid(puzzle);
   }, [word]);
 
   function onClick(i: number, j: number) {
     if (!puzzleGrid) return;
 
-    let puzzleGridCopy = puzzleGrid.map((item) => item.slice());
+    const puzzleGridCopy = puzzleGrid.map((item) => item.slice());
 
-    let neighbour_indices = [
+    const neighbour_indices = [
       [i - 1, j],
       [i, j + 1],
       [i + 1, j],
@@ -90,8 +90,8 @@ function SlidingPuzzle({ word }: { word: string }) {
     let update_made = false;
 
     for (let k = 0; k < neighbour_indices.length; k++) {
-      let p = neighbour_indices[k][0];
-      let q = neighbour_indices[k][1];
+      const p = neighbour_indices[k][0];
+      const q = neighbour_indices[k][1];
 
       if (
         p >= 0 &&

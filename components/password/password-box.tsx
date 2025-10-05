@@ -56,13 +56,11 @@ const PasswordBox = forwardRef<HTMLTextAreaElement, PasswordBoxProps>(
 
     return (
       <div className="w-full pb-2">
-        {/* Label */}
         <div className="flex items-center justify-between mb-2 px-1 text-sm font-medium text-muted-foreground">
           <span>Choose a password</span>
           <span>{pswd.length}</span>
         </div>
 
-        {/* Textarea */}
         <textarea
           id="pswdbox"
           ref={textareaRef}

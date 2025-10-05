@@ -50,7 +50,6 @@ function Earthquake({
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -61,7 +60,6 @@ function Earthquake({
         replaceCount.current < 8 ? 1000 : 3000,
       );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pswd]);
 
   useEffect(() => {
@@ -76,7 +74,7 @@ function Earthquake({
     const matches = [...pswd.matchAll(/[!-~]/g)];
     if (matches.length > 0) {
       const indices = matches.map((m) => m.index as number);
-      let i = indices[Math.floor(Math.random() * indices.length)];
+      const i = indices[Math.floor(Math.random() * indices.length)];
 
       const arr = ["\u{1FAA8}", "\u{1FAA8}", "\u{1F342}", "\u{1F343}"];
       const x = arr[Math.floor(Math.random() * arr.length)];

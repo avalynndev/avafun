@@ -26,6 +26,7 @@ const eslintConfig = [
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "react-hooks/exhaustive-deps": "off",
+      "@next/next/no-img-element": "off",
     },
   }),
 ];

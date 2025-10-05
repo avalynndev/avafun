@@ -406,7 +406,7 @@ export default function GamePage() {
                     <p>Final Score</p>
                   </div>
                   {score === highScore && score > 0 && (
-                    <div className="text-black mt-4 flex items-center justify-center gap-2 text-yellow-600 font-semibold">
+                    <div className="mt-4 flex items-center justify-center gap-2 text-yellow-600 font-semibold">
                       <Trophy className="w-5 h-5" />
                       <span>New High Score!</span>
                     </div>

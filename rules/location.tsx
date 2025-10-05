@@ -136,7 +136,7 @@ export default class RuleLocation extends Rule {
   }
 
   check = (txt: string): boolean => {
-    let r = new RegExp(`(?:${this.locationName})`, "i");
+    const r = new RegExp(`(?:${this.locationName})`, "i");
     return r.test(txt);
   };
 }

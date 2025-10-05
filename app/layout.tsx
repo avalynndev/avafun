@@ -9,7 +9,7 @@ import { CoinDisplay } from "@/components/coin-display";
 import { StoreProvider } from "@/components/store-provider";
 import { siteConfig } from "@/config/site";
 import { Toaster } from "sonner";
-import {CoinDrop} from "@/components/coin-drop";
+import { CoinDrop } from "@/components/coin-drop";
 
 export const metadata: Metadata = {
   title: {

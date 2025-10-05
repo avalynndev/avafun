@@ -19,20 +19,20 @@ A fun web-based arcade where every game costs coins to play, and you can earn mo
 
 ## 🎮 Available Games
 
-| Game | Price | Description |
-|------|-------|-------------|
-| 🐦 **Flappy Bird** | 20 🪙 | Navigate through pipes and aim for the highest score |
-| 💰 **Spend Bill Gates' Money** | 25 🪙 | Experience what it's like to spend billions |
-| ✅ **Life Checklist** | 40 🪙 | Complete life milestones and earn points |
-| ⚡ **Reaction Time** | 15 🪙 | Test your reflexes and earn coins based on speed |
-| 📊 **Progress** | 30 🪙 | Visualize time progress and upcoming events |
-| 🐍 **Snake Game** | 15 🪙 | Classic snake gameplay with modern controls |
-| 🔢 **2048** | 20 🪙 | Combine numbered tiles to reach 2048 |
-| 🔐 **Password Game** | 30 🪙 | Solve increasingly complex password rules |
-| 🎰 **Spin the Wheel** | 25 🪙 | Test your luck and win (or lose) coins |
-| 🧠 **Memory Match** | 35 🪙 | Flip cards and match pairs with minimal moves |
-| 🛒 **Sell Sell Sell** | 40 🪙 | Explore the world of consumer capitalism |
-| 🌌 **Speed** | 30 🪙 | Discover how fast you're actually moving through space |
+| Game                           | Price | Description                                            |
+| ------------------------------ | ----- | ------------------------------------------------------ |
+| 🐦 **Flappy Bird**             | 20 🪙 | Navigate through pipes and aim for the highest score   |
+| 💰 **Spend Bill Gates' Money** | 25 🪙 | Experience what it's like to spend billions            |
+| ✅ **Life Checklist**          | 40 🪙 | Complete life milestones and earn points               |
+| ⚡ **Reaction Time**           | 15 🪙 | Test your reflexes and earn coins based on speed       |
+| 📊 **Progress**                | 30 🪙 | Visualize time progress and upcoming events            |
+| 🐍 **Snake Game**              | 15 🪙 | Classic snake gameplay with modern controls            |
+| 🔢 **2048**                    | 20 🪙 | Combine numbered tiles to reach 2048                   |
+| 🔐 **Password Game**           | 30 🪙 | Solve increasingly complex password rules              |
+| 🎰 **Spin the Wheel**          | 25 🪙 | Test your luck and win (or lose) coins                 |
+| 🧠 **Memory Match**            | 35 🪙 | Flip cards and match pairs with minimal moves          |
+| 🛒 **Sell Sell Sell**          | 40 🪙 | Explore the world of consumer capitalism               |
+| 🌌 **Speed**                   | 30 🪙 | Discover how fast you're actually moving through space |
 
 ## 🛠️ Tech Stack
 
@@ -49,18 +49,20 @@ A fun web-based arcade where every game costs coins to play, and you can earn mo
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/avalynndev/avafun.git
    cd avafun
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -72,6 +74,7 @@ A fun web-based arcade where every game costs coins to play, and you can earn mo
    ```
 
 3. **Run the development server**
+
    ```bash
    npm run dev
    # or
@@ -110,18 +113,21 @@ avafun/
 ## 🎨 Key Features Implementation
 
 ### Coin System
+
 - **Local Storage**: Coins are stored in browser's localStorage
 - **Session Validation**: Games require valid session keys to prevent cheating
 - **Dynamic Pricing**: Different games cost different amounts
 - **Earning Mechanics**: Each game has unique coin earning systems
 
 ### Game Architecture
+
 - **Session Management**: Each game session is validated with unique keys
 - **Progress Tracking**: High scores and progress saved locally
 - **Responsive Design**: All games work on mobile and desktop
 - **Accessibility**: Keyboard navigation and screen reader support
 
 ### Performance Optimizations
+
 - **Code Splitting**: Games are loaded on demand
 - **Image Optimization**: Next.js Image component for optimal loading
 - **Bundle Optimization**: Tree shaking and dead code elimination
@@ -159,6 +165,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🐛 Bug Reports
 
 Found a bug? Please create an issue with:
+
 - Description of the bug
 - Steps to reproduce
 - Expected vs actual behavior
@@ -178,4 +185,4 @@ Have an idea for a new game or feature? We'd love to hear it! Create an issue wi
 
 **🎮 Made with ❤️ by avalynndev**
 
-*Enjoy your games and may the coins be ever in your favor!* 🪙
+_Enjoy your games and may the coins be ever in your favor!_ 🪙
