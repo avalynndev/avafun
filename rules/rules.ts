@@ -1,7 +1,6 @@
 import Rule from "./rule";
 import RuleWordle from "./wordle";
 import RuleSlidingPuzzle from "./slidingpuzzle";
-import RuleMorse from "./morse";
 import RuleRiddle from "./riddle";
 import RuleLocation from "./location";
 import RuleTimeEmoji from "./time-emoji";

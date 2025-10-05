@@ -34,7 +34,8 @@ export default class RuleWordle extends Rule {
     super("Your password must contain today’s Wordle answer.");
 
     getTodaysWordle().then((solution) => {
-      if (solution) this.solution = solution;
+      this.solution = solution;
+      if (solution) localStorage.setItem("wordle-solution", solution);
     });
 
     this.renderItem = () => (
@@ -42,7 +43,6 @@ export default class RuleWordle extends Rule {
         <a
           href="https://www.nytimes.com/games/wordle/index.html"
           target="_blank"
-          rel="noopener noreferrer"
         >
           Wordle
         </a>{" "}
@@ -51,9 +51,11 @@ export default class RuleWordle extends Rule {
     );
 
     this.check = (txt: string): boolean => {
+      if (!this.solution) {
+        this.solution = localStorage.getItem("wordle-solution");
+      }
       if (!this.solution) return false;
-      const regex = new RegExp(`(${this.solution})`, "i");
-      return regex.test(txt);
+      return new RegExp(this.solution, "i").test(txt);
     };
   }
 }
