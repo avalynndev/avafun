@@ -20,7 +20,6 @@ async function getTodaysWordle(): Promise<string | null> {
     const json = await response.json();
     const parsed = JSON.parse(json.contents);
 
-    console.log("WORDLE:", parsed);
     return parsed.solution;
   } catch (error) {
     console.error("Failed to fetch Wordle:", error);

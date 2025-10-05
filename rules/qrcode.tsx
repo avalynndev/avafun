@@ -13,7 +13,6 @@ export default class RuleQR extends Rule {
     );
 
     this.word = getRandomWord();
-    console.log("QR word:", this.word);
 
     this.qrUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${this.word}!&size=150x150`;
 

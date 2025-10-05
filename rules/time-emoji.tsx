@@ -68,8 +68,6 @@ export default class RuleTimeEmoji extends Rule {
     this.nearestHalfHour = getCurrentNearestHalfHour();
     this.currentTimeEmoji = hourToEmoji[this.nearestHalfHour];
 
-    console.log("Time Rule:", this.nearestHalfHour, this.currentTimeEmoji);
-
     this.check = (txt: string): boolean => {
       if (!this.currentTimeEmoji) return false;
       const regex = new RegExp(this.currentTimeEmoji, "u");

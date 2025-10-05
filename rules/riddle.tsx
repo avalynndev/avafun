@@ -99,8 +99,6 @@ export default class RuleRiddle extends Rule {
     super("Your password must contain the solution to the following riddle:");
     this.riddleNum = Math.floor(Math.random() * riddles.length);
 
-    console.log("Riddle:", riddles[this.riddleNum][1]);
-
     this.renderItem = ({ regenerateRule, correct }) => (
       <Riddle
         riddleNum={this.riddleNum}
@@ -112,7 +110,6 @@ export default class RuleRiddle extends Rule {
 
   regenerate() {
     this.riddleNum = Math.floor(Math.random() * riddles.length);
-    console.log("Riddle:", riddles[this.riddleNum][1]);
   }
 
   check = (txt: string) => {

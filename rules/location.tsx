@@ -121,7 +121,6 @@ export default class RuleLocation extends Rule {
     );
     this.keys = Object.keys(locations);
     this.locationName = this.keys[Math.floor(Math.random() * this.keys.length)];
-    console.log("Country:", this.locationName);
 
     this.renderItem = ({ regenerateRule, correct }) => (
       <Location
@@ -134,7 +133,6 @@ export default class RuleLocation extends Rule {
 
   regenerate() {
     this.locationName = this.keys[Math.floor(Math.random() * this.keys.length)];
-    console.log("Country:", this.locationName);
   }
 
   check = (txt: string): boolean => {

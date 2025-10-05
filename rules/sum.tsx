@@ -8,7 +8,6 @@ export default class RuleSum extends Rule {
       const digits = txt.match(/-?\d/g)?.map((x) => Number(x)) ?? [];
       const sum = digits.reduce((acc, v) => acc + v, 0);
 
-      console.log("sum:", sum, "target:", 30);
       return sum === 30;
     };
   }

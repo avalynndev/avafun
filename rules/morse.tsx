@@ -46,8 +46,6 @@ export default class RuleMorse extends Rule {
 
         const exp = code.replaceAll(".", "\\.");
 
-        console.log("morse:", exp);
-
         const r = new RegExp(exp);
         return r.test(txt);
       }

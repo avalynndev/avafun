@@ -11,7 +11,6 @@ export default class RuleSlidingPuzzle extends Rule {
   constructor() {
     super("Your password must contain the solution of this sliding puzzle.");
     this.word = getRandomWord();
-    console.log("Puzzle word:", this.word);
 
     this.renderItem = () => <SlidingPuzzle word={this.word} />;
 

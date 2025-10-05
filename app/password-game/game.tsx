@@ -109,7 +109,6 @@ export default function Home() {
   }
 
   function regenerateRule(num: number): void {
-    console.log("regenerate", num);
     num--;
     let rules = [...ruleState];
     if (rules[num].regenerate) {
