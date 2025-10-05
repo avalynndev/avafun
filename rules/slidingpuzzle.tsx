@@ -22,7 +22,6 @@ export default class RuleSlidingPuzzle extends Rule {
   }
 }
 
-
 function SlidingPuzzle({ word }: { word: string }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const smallCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -150,8 +149,8 @@ function SlidingPuzzle({ word }: { word: string }) {
                 onClick={() => onClick(i, j)}
               />
             </div>
-          )
-        )
+          ),
+        ),
       )}
     </div>
   );

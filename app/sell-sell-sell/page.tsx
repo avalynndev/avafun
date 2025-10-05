@@ -13,7 +13,7 @@ export default function Page() {
         </div>
       }
     >
-      <GamePage/>
+      <GamePage />
     </Suspense>
   );
 }

@@ -22,6 +22,23 @@ export function Footer() {
       transition={{ duration: 0.5 }}
     >
       <div className="mx-auto max-w-4xl text-center">
+        <motion.p
+          className="mb-6 text-xs text-muted-foreground"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          Drops appear{" "}
+          <span className="font-medium text-foreground">randomly</span> around
+          the screen. <br />
+          There’s even a{" "}
+          <span className="text-yellow-500 font-semibold">
+            really rare
+          </span>{" "}
+          chance of finding exactly{" "}
+          <span className="font-bold">my crush’s birthday number</span> of coins
+          💖
+        </motion.p>
         <div className="mb-6 flex flex-wrap justify-center gap-3">
           <motion.div
             variants={buttonVariants}

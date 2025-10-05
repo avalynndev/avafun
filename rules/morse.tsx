@@ -34,7 +34,7 @@ const morse: Record<string, string> = {
 export default class RuleMorse extends Rule {
   constructor() {
     super(
-      "Your password must contain the Morse code of the first 3 English alphabets in your password. (Use . and -)"
+      "Your password must contain the Morse code of the first 3 English alphabets in your password. (Use . and -)",
     );
     this.check = (txt: string): boolean => {
       const letters = txt.match(/[A-Za-z]/g)?.slice(0, 3);
@@ -44,7 +44,6 @@ export default class RuleMorse extends Rule {
           morse[letters[1].toLowerCase()]
         } ${morse[letters[2].toLowerCase()]}`;
 
-        // escape "." so regex doesn’t interpret as wildcard
         const exp = code.replaceAll(".", "\\.");
 
         console.log("morse:", exp);

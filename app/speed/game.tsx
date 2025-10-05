@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { geistSans } from "@/lib/fonts";
 import { useSearchParams, useRouter } from "next/navigation";
+import { useCoins } from "@/components/coin-context";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -131,8 +132,17 @@ function formatElapsed(seconds: number): string {
 export default function SpeedPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { addCoins } = useCoins();
+  const [claimed, setClaimed] = useState(false);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    const rewardClaimed = localStorage.getItem("speed-reward-claimed");
+    if (rewardClaimed === "true") {
+      setClaimed(true);
+    }
+  }, []);
 
   useEffect(() => {
     const key = searchParams.get("key");
@@ -166,6 +176,12 @@ export default function SpeedPage() {
   function milesToNanometers(miles: number): number {
     return miles * 1.60934e9;
   }
+
+  const handleClaim = () => {
+    addCoins(70);
+    localStorage.setItem("speed-reward-claimed", "true");
+    setClaimed(true);
+  };
 
   if (!valid) return null;
 
@@ -271,7 +287,7 @@ export default function SpeedPage() {
             />
           </div>
 
-          <div className="max-w-lg">
+          <div className="max-w-lg pb-4">
             <p className="text-sm mb-3">But you . . .</p>
             <p className="text-sm mb-3">
               haven&apos;t a clue that we are going in any particular direction
@@ -279,6 +295,16 @@ export default function SpeedPage() {
             </p>
             <p className="text-lg font-bold">It&apos;s only . . . 0 mph</p>
           </div>
+          {!claimed ? (
+            <Button
+              onClick={handleClaim}
+              className="bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-2 rounded-lg shadow-md"
+            >
+              Claim +70 Coins 🎉
+            </Button>
+          ) : (
+            <p className="text-sm text-gray-500">Claimed +70 coins!</p>
+          )}
         </motion.section>
       </motion.div>
     </motion.main>

@@ -47,7 +47,7 @@ export function Games() {
   return (
     <>
       <motion.div
-        className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 sm:grid-cols-2 md:grid-cols-3"
+        className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 md:px-24 md:grid-cols-2 lg:px-4 sm:grid-cols-2 lg:grid-cols-3"
         variants={containerVariants}
         initial="hidden"
         animate="show"
@@ -58,7 +58,7 @@ export function Games() {
               <AlertDialogTrigger asChild>
                 <motion.div
                   onClick={() => setSelectedGame(element)}
-                  className={`group relative flex h-34 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-card shadow-sm transition-all duration-300 ${
+                  className={` border border-border md:border-none group relative flex h-34 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-card shadow-sm transition-all duration-300 ${
                     element.isDisabled
                       ? "cursor-not-allowed opacity-50"
                       : "hover:shadow-md"
@@ -75,7 +75,7 @@ export function Games() {
                     className="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-90"
                   />
 
-                  <div className="absolute bottom-3 left-3 rounded-md bg-background/80 px-2 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm">
+                  <div className="absolute bottom-3 md:hidden lg:block left-3 rounded-md bg-background/80 px-2 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm">
                     {element.title}
                   </div>
 

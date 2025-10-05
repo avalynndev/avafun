@@ -6,7 +6,7 @@ export function CoinDisplay() {
   const { coins, loading } = useCoins();
 
   return (
-    <div className="fixed top-4 right-4 flex items-center gap-2 rounded-full px-4 py-2 font-semibold border shadow-lg">
+    <div className="fixed top-4 z-1000 lg:bg-transparent sm:bg-background right-4 flex items-center gap-2 rounded-full px-4 py-2 font-semibold border shadow-lg">
       {loading ? (
         <>
           🪙{" "}

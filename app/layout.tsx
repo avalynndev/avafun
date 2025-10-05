@@ -9,6 +9,7 @@ import { CoinDisplay } from "@/components/coin-display";
 import { StoreProvider } from "@/components/store-provider";
 import { siteConfig } from "@/config/site";
 import { Toaster } from "sonner";
+import {CoinDrop} from "@/components/coin-drop";
 
 export const metadata: Metadata = {
   title: {
@@ -78,6 +79,7 @@ export default function RootLayout({
               <main className="flex-1">
                 <CoinProvider>
                   <CoinDisplay />
+                  <CoinDrop />
                   {children}
                 </CoinProvider>
               </main>

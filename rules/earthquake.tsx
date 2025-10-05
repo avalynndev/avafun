@@ -13,7 +13,7 @@ interface EarthquakeProps {
 export default class RuleEarthquake extends Rule {
   constructor() {
     super(
-      "Oh no! There is an earthquake! Get your password to safety! Add this chair to your password and put the rest of your password below it."
+      "Oh no! There is an earthquake! Get your password to safety! Add this chair to your password and put the rest of your password below it.",
     );
 
     this.renderItem = ({ pswd, setPswd, shakePasswordBox, correct }) => (
@@ -41,7 +41,6 @@ function Earthquake({
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const replaceCount = useRef(0);
 
-  // start earthquake
   useEffect(() => {
     timerRef.current = setTimeout(shuffleCharacters, 1000);
 
@@ -54,19 +53,17 @@ function Earthquake({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // continue earthquake
   useEffect(() => {
     if (!solvedOnce.current) {
       if (timerRef.current) clearTimeout(timerRef.current);
       timerRef.current = setTimeout(
         shuffleCharacters,
-        replaceCount.current < 8 ? 1000 : 3000
+        replaceCount.current < 8 ? 1000 : 3000,
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pswd]);
 
-  // stop earthquake
   useEffect(() => {
     if (!solvedOnce.current && correct) {
       solvedOnce.current = true;

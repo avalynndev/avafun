@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { geistSans } from "@/lib/fonts";
 import { Badge } from "@/components/ui/badge";
+import { useCoins } from "@/components/coin-context";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -19,6 +20,15 @@ export default function GamePage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [valid, setValid] = useState(false);
+  const { addCoins } = useCoins();
+  const [claimed, setClaimed] = useState(false);
+
+  useEffect(() => {
+    const rewardClaimed = localStorage.getItem("sell-sell-sell-reward-claimed");
+    if (rewardClaimed === "true") {
+      setClaimed(true);
+    }
+  }, []);
 
   useEffect(() => {
     const key = searchParams.get("key");
@@ -31,6 +41,12 @@ export default function GamePage() {
       router.replace("/");
     }
   }, [router, searchParams]);
+
+  const handleClaim = () => {
+    addCoins(70);
+    localStorage.setItem("sell-sell-sell-reward-claimed", "true");
+    setClaimed(true);
+  };
 
   if (!valid) return null;
 
@@ -66,7 +82,7 @@ export default function GamePage() {
           </motion.p>
         </div>
       </motion.main>
-      <div className="py-16 max-w-6xl">
+      <div className="pt-16 pb-4 max-w-6xl">
         <Section
           title="Toyota is king of the automobile world with 11 million cars sold per year."
           subtitle="20 Toyotas sold/min"
@@ -167,6 +183,18 @@ export default function GamePage() {
           lines={40}
         />
       </div>
+      {!claimed ? (
+        <Button
+          onClick={handleClaim}
+          className="bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-2 rounded-lg shadow-md"
+        >
+          Claim +70 Coins 🎉
+        </Button>
+      ) : (
+        <p className="text-sm text-gray-500">
+          Claimed +70 coins!
+        </p>
+      )}
     </motion.main>
   );
 }
@@ -185,9 +213,7 @@ function ShakingBezos() {
   }, []);
 
   return (
-    <div
-      className="flex justify-center my-12"
-    >
+    <div className="flex justify-center my-12">
       <motion.img
         src="/sell-sell-sell/jeff.png"
         alt="Jeff Bezos"
@@ -211,17 +237,14 @@ function Section({
   lines: number;
 }) {
   return (
-    <section
-      className="mb-20 w-full justify-center text-center"
-  
-    >
+    <section className="mb-20 w-full justify-center text-center">
       {title && (
-        <h2 className="text-2xl font-semibold mb-2 text-center">
-          {title}
-        </h2>
+        <h2 className="text-2xl font-semibold mb-2 text-center">{title}</h2>
       )}
       {subtitle && (
-        <Badge className="mb-8 p-2 rounded-md bg-muted text-foreground">{subtitle}</Badge>
+        <Badge className="mb-8 p-2 rounded-md bg-muted text-foreground">
+          {subtitle}
+        </Badge>
       )}
 
       <div className="space-y-4 overflow-hidden">

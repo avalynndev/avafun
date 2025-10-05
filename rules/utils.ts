@@ -204,7 +204,7 @@ function getShuffledPuzzle(): number[][] {
 function flattenArray(arr: number[][]): number[] {
   return arr.reduce(
     (flatArr, subArr) => flatArr.concat(subArr),
-    [] as number[]
+    [] as number[],
   );
 }
 

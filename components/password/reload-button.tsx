@@ -1,5 +1,6 @@
 "use client";
 
+import { ReloadIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 
 interface ReloadButtonProps {
@@ -19,13 +20,7 @@ export default function ReloadButton({
         onClick={onClick}
         className="ml-auto grid grid-cols-[auto_14px] items-center p-[3px] hover:cursor-pointer hover:scale-110 transition-transform duration-150"
       >
-        <Image
-          width={24}
-          height={24}
-          src="/reload.png"
-          alt="reload"
-          className="w-6 h-6"
-        />
+        <ReloadIcon className="h-4 w-4" />
         <span className="text-sm font-bold self-end">x{reloadsLeft}</span>
       </div>
     );

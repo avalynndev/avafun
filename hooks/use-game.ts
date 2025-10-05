@@ -82,7 +82,7 @@ function merge(grid: Grid): { newGrid: Grid; score: number; merged: boolean } {
         };
         score += mergedValue;
         merged = true;
-        j++; // Skip next cell as it's been merged
+        j++;
       } else {
         newGrid[i][colIndex] = {
           ...grid[i][j]!,
@@ -94,7 +94,6 @@ function merge(grid: Grid): { newGrid: Grid; score: number; merged: boolean } {
       }
       colIndex++;
     }
-    // Handle the last cell if it wasn't merged
     if (
       grid[i][GRID_SIZE - 1] &&
       colIndex < GRID_SIZE &&
@@ -132,7 +131,6 @@ function moveGrid(
   let score = 0;
   let moved = false;
 
-  // First, handle rotations based on direction
   switch (direction) {
     case "up":
       workingGrid = transpose(workingGrid);
@@ -143,14 +141,11 @@ function moveGrid(
     case "right":
       workingGrid = reverse(workingGrid);
       break;
-    // 'left' needs no rotation
   }
 
-  // Compress (move all tiles to the left)
   const compressedGrid = compress(workingGrid);
   moved = !areGridsEqual(compressedGrid, workingGrid);
 
-  // Merge
   const {
     newGrid: mergedGrid,
     score: mergeScore,
@@ -159,10 +154,8 @@ function moveGrid(
   moved = moved || merged;
   score += mergeScore;
 
-  // Compress again after merging
   workingGrid = compress(mergedGrid);
 
-  // Rotate back
   switch (direction) {
     case "up":
       workingGrid = transpose(workingGrid);
@@ -173,7 +166,6 @@ function moveGrid(
     case "right":
       workingGrid = reverse(workingGrid);
       break;
-    // 'left' needs no rotation
   }
 
   return { newGrid: workingGrid, score, moved };
@@ -183,7 +175,6 @@ type GameAction =
   | { type: "UPDATE_GAME_STATE"; payload: GameState }
   | { type: "RESET_GAME"; payload: GameState };
 
-// Add the initial state
 const initialState: GameState = (() => {
   const initialGrid = createEmptyGrid();
   const cell1 = generateRandomCell(initialGrid);
@@ -203,7 +194,6 @@ const initialState: GameState = (() => {
   };
 })();
 
-// Add the reducer
 function gameReducer(state: GameState, action: GameAction): GameState {
   switch (action.type) {
     case "UPDATE_GAME_STATE":
@@ -256,15 +246,11 @@ export function useGame() {
   );
 
   const checkForPossibleMoves = useCallback((grid: Grid): boolean => {
-    // Check for empty cells
     if (grid.some((row) => row.some((cell) => !cell))) return true;
 
-    // Check for possible merges in rows and columns
     for (let i = 0; i < GRID_SIZE; i++) {
       for (let j = 0; j < GRID_SIZE - 1; j++) {
-        // Check horizontal merges
         if (grid[i][j]?.value === grid[i][j + 1]?.value) return true;
-        // Check vertical merges
         if (grid[j][i]?.value === grid[j + 1][i]?.value) return true;
       }
     }

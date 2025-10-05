@@ -116,7 +116,9 @@ export default class RuleLocation extends Rule {
   locationName: string;
 
   constructor() {
-    super("Your password must contain the name of the country at this latitude and longitude.");
+    super(
+      "Your password must contain the name of the country at this latitude and longitude.",
+    );
     this.keys = Object.keys(locations);
     this.locationName = this.keys[Math.floor(Math.random() * this.keys.length)];
     console.log("Country:", this.locationName);

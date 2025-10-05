@@ -113,7 +113,7 @@ export default function GamePage() {
     x: number,
     y: number,
     w: number,
-    h: number
+    h: number,
   ) => ctx.fillRect(x, y, w, h);
 
   const strokeRect = (
@@ -121,12 +121,12 @@ export default function GamePage() {
     x: number,
     y: number,
     w: number,
-    h: number
+    h: number,
   ) => ctx.strokeRect(x + 0.5, y + 0.5, w, h);
 
   const drawSnake = (ctx: CanvasRenderingContext2D) => {
-    ctx.fillStyle = "#22c55e"; 
-    ctx.strokeStyle = "#166534"; 
+    ctx.fillStyle = "#22c55e";
+    ctx.strokeStyle = "#166534";
 
     ctx.beginPath();
     ctx.roundRect(
@@ -134,7 +134,7 @@ export default function GamePage() {
       snake.head.y * canvasGridSize,
       canvasGridSize,
       canvasGridSize,
-      6 
+      6,
     );
     ctx.fill();
     ctx.stroke();
@@ -146,7 +146,7 @@ export default function GamePage() {
         part.y * canvasGridSize,
         canvasGridSize,
         canvasGridSize,
-        i === 0 ? 6 : 3 
+        i === 0 ? 6 : 3,
       );
       ctx.fill();
       ctx.stroke();
@@ -161,7 +161,7 @@ export default function GamePage() {
       ctx.fillText(
         "🍎",
         apple.x * canvasGridSize + canvasGridSize / 2,
-        apple.y * canvasGridSize + canvasGridSize / 2
+        apple.y * canvasGridSize + canvasGridSize / 2,
       );
     }
   };
@@ -203,18 +203,18 @@ export default function GamePage() {
 
   useInterval(
     () => !isLost && updateSnake(),
-    running && countDown === 0 ? gameDelay : null
+    running && countDown === 0 ? gameDelay : null,
   );
   useInterval(
     () => setCountDown((c) => c - 1),
-    countDown > 0 && countDown < 4 ? 800 : null
+    countDown > 0 && countDown < 4 ? 800 : null,
   );
 
   useEffect(() => {
     setHighscore(
       localStorage.getItem("highscore")
         ? parseInt(localStorage.getItem("highscore")!)
-        : 0
+        : 0,
     );
   }, []);
 

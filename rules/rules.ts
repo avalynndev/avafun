@@ -12,17 +12,17 @@ import RuleEarthquake from "./earthquake";
 const rules: Rule[] = [
   new Rule(
     "Your password must be at least 6 characters.",
-    (t) => t?.length >= 6
+    (t) => t?.length >= 6,
   ),
   new Rule(
     "Your password must include an uppercase and a lowercase letter.",
-    (t) => /[A-Z]/.test(t) && /[a-z]/.test(t)
+    (t) => /[A-Z]/.test(t) && /[a-z]/.test(t),
   ),
   new Rule("Your password must include a special character.", (t) =>
-    /\W/.test(t)
+    /\W/.test(t),
   ),
   new Rule("Your password must include a negative number.", (t) =>
-    /-\d/.test(t)
+    /-\d/.test(t),
   ),
   new Rule(
     "Your password must contain all the english vowels.",
@@ -31,40 +31,39 @@ const rules: Rule[] = [
       /e/i.test(t) &&
       /i/i.test(t) &&
       /o/i.test(t) &&
-      /u/i.test(t)
+      /u/i.test(t),
   ),
   new Rule("Your password must include 2-digit prime number.", (t) =>
     /(?:11)|(?:13)|(?:17)|(?:19)|(?:23)|(?:29)|(?:31)|(?:37)|(?:41)|(?:43)|(?:47)|(?:53)|(?:59)|(?:61)|(?:67)|(?:71)|(?:73)|(?:79)|(?:83)|(?:89)|(?:97)/.test(
-      t
-    )
+      t,
+    ),
   ),
   new RuleSum(),
   new Rule(
     'Your password must include the name of "The power house of the cell". 🦠',
-    (t) => /(?:mitochondria)|(?:mitochondrion)/i.test(t)
+    (t) => /(?:mitochondria)|(?:mitochondrion)/i.test(t),
   ),
   new Rule("Your password must include the name of a continent.", (t) =>
     /asia|europe|africa|australia|oceania|north america|south america|antarctica/i.test(
-      t
-    )
+      t,
+    ),
   ),
   new Rule(
     "Your password must contain the value of pi up to first 5 decimal places.",
-    (t) => /3\.14159/.test(t)
+    (t) => /3\.14159/.test(t),
   ),
 
   new RuleTimeEmoji(),
   new RuleWordle(),
   new RuleEarthquake(),
   new RuleQR(),
-  new RuleMorse(),
   new RuleLocation(),
   new RuleRiddle(),
   new Rule(
     "Your password must have as many vowels as consonants.",
     (t) =>
       (t.match(/[aeiou]/gi) || []).length ===
-      (t.match(/[bcdfghjklmnpqrstvwxys]/gi) || []).length
+      (t.match(/[bcdfghjklmnpqrstvwxys]/gi) || []).length,
   ),
   new RuleSlidingPuzzle(),
   new Rule("Your password must include the length of your password.", (t) => {

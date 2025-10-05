@@ -17,18 +17,11 @@ function getCaretPosition(el: HTMLTextAreaElement): CaretPosition {
       start: el.selectionStart,
       end: el.selectionEnd || 0,
     };
-  } else {
-    return {
-      start: 0,
-      end: 0,
-    };
   }
+  return { start: 0, end: 0 };
 }
 
-function setCaretPosition(
-  el: HTMLTextAreaElement | null,
-  pos?: CaretPosition
-): void {
+function setCaretPosition(el: HTMLTextAreaElement | null, pos?: CaretPosition) {
   if (el && pos && el.setSelectionRange) {
     el.setSelectionRange(pos.start, pos.end);
   }
@@ -48,7 +41,7 @@ const PasswordBox = forwardRef<HTMLTextAreaElement, PasswordBoxProps>(
       }
     }, [pswd, textareaRef]);
 
-    function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
+    function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
       if (textareaRef.current) {
         caretPos.current = getCaretPosition(textareaRef.current);
       }
@@ -62,32 +55,32 @@ const PasswordBox = forwardRef<HTMLTextAreaElement, PasswordBoxProps>(
     }, [pswd, textareaRef]);
 
     return (
-      <>
-        <div className="text-left text-[15px] mb-1.5 px-2.5 pb-0.5">
-          Choose a password
-          <span className="float-right mt-0.5 mx-1.5 mb-2.5">
-            {pswd.length}
-          </span>
+      <div className="w-full pb-2">
+        {/* Label */}
+        <div className="flex items-center justify-between mb-2 px-1 text-sm font-medium text-muted-foreground">
+          <span>Choose a password</span>
+          <span>{pswd.length}</span>
         </div>
+
+        {/* Textarea */}
         <textarea
           id="pswdbox"
-          className={cn(
-            "box-border text-left bg-white border-2 border-[#0A0F0D] text-[22px]",
-            "p-3 px-4 mt-1.5 mb-5 w-full overflow-y-hidden resize-none",
-            "shadow-[8px_8px_1px_0px_rgba(209,197,209,0.5)]",
-            "hover:shadow-[10px_10px_1px_0px_rgba(209,197,209,0.6)]",
-            "focus:border-2 focus:border-[#533ea5] focus:outline-none",
-            "transition-shadow"
-          )}
           ref={textareaRef}
           value={pswd}
           onChange={handleChange}
           rows={1}
           spellCheck={false}
+          className={cn(
+            "w-full resize-none overflow-hidden rounded-md border border-input bg-background",
+            "px-3 py-2 text-base leading-relaxed",
+            "shadow-sm focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+            "disabled:cursor-not-allowed disabled:opacity-50",
+            "transition-shadow",
+          )}
         />
-      </>
+      </div>
     );
-  }
+  },
 );
 
 PasswordBox.displayName = "PasswordBox";

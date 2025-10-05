@@ -2,7 +2,6 @@ type InteractiveElement = {
   title: string;
   id: string;
   price: number;
-  iframe?: string;
   isDisabled: boolean;
   backgroundUrl: string;
 };
@@ -21,13 +20,6 @@ export const games: InteractiveElement[] = [
     price: 25,
     isDisabled: false,
     backgroundUrl: "/games/spend.svg",
-  },
-  {
-    id: "type-test",
-    title: "Type Test",
-    price: 25,
-    isDisabled: true,
-    backgroundUrl: "/games/type-test.svg",
   },
   {
     id: "life-checklist",
@@ -49,13 +41,6 @@ export const games: InteractiveElement[] = [
     price: 30,
     isDisabled: false,
     backgroundUrl: "/games/progress.svg",
-  },
-  {
-    id: "tic-tac-toe",
-    title: "Tic Tac Toe",
-    price: 20,
-    isDisabled: true,
-    backgroundUrl: "/games/tic-tac-toe.svg",
   },
   {
     id: "snake-game",
@@ -91,13 +76,6 @@ export const games: InteractiveElement[] = [
     price: 35,
     isDisabled: false,
     backgroundUrl: "/games/memory-match.svg",
-  },
-  {
-    id: "auction-game",
-    title: "The Auction Game",
-    price: 50,
-    isDisabled: true,
-    backgroundUrl: "/games/auction-game.svg",
   },
   {
     id: "sell-sell-sell",

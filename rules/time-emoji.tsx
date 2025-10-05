@@ -3,7 +3,7 @@ import Rule from "./rule";
 
 function getCurrentNearestHalfHour(): string {
   const d = new Date();
-  let h = d.getHours() % 12; // 12-hour format
+  let h = d.getHours() % 12;
   let m = d.getMinutes();
 
   if (m >= 45) {
@@ -18,7 +18,6 @@ function getCurrentNearestHalfHour(): string {
   return `${("00" + h).slice(-2)}:${("00" + m).slice(-2)}`;
 }
 
-// Mapping nearest half-hour to emoji clocks
 const hourToEmoji: Record<string, string> = {
   "00:00": "\u{1F55B}",
   "00:30": "\u{1F567}",
@@ -63,21 +62,20 @@ export default class RuleTimeEmoji extends Rule {
 
   constructor() {
     super(
-      "Your password must contain the current time as emoji (nearest half hour).");
+      "Your password must contain the current time as emoji (nearest half hour).",
+    );
 
     this.nearestHalfHour = getCurrentNearestHalfHour();
     this.currentTimeEmoji = hourToEmoji[this.nearestHalfHour];
 
     console.log("Time Rule:", this.nearestHalfHour, this.currentTimeEmoji);
 
-    // assign check function here
     this.check = (txt: string): boolean => {
       if (!this.currentTimeEmoji) return false;
       const regex = new RegExp(this.currentTimeEmoji, "u");
       return regex.test(txt);
     };
 
-    // render UI snippet (optional)
     this.renderItem = () => (
       <span>
         Must include the clock emoji for <b>{this.nearestHalfHour}</b> →{" "}
