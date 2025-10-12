@@ -1,14 +1,14 @@
-# 🎮 Avafun
+# Avafun
 
-A fun web-based arcade where every game costs coins to play, and you can earn more coins the longer you play! Built with Next.js, React, and TypeScript.
+A web-based arcade where every game costs coins to play. The longer you play, the more coins you earn to unlock new games. Built with Next.js, React, and TypeScript.
 
-![Avafun Preview](https://img.shields.io/badge/Status-Live-brightgreen) ![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black) ![React](https://img.shields.io/badge/React-19.1.0-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![Status](https://img.shields.io/badge/Status-Live-brightgreen) ![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black) ![React](https://img.shields.io/badge/React-19.1.0-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 
-## 🚀 Live Demo
+## Live Demo
 
-**🔗 [Play Avafun Now](https://avafun.vercel.app)**
+**[Play Avafun Now](https://avafun.vercel.app)**
 
-## 🎯 Features
+## Features
 
 - **12 Unique Games**: From classic Snake to modern Password challenges
 - **Coin Economy**: Earn coins by playing games and spend them to unlock new experiences
@@ -17,35 +17,35 @@ A fun web-based arcade where every game costs coins to play, and you can earn mo
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile
 - **Dark/Light Theme**: Toggle between themes for comfortable gaming
 
-## 🎮 Available Games
+## Available Games
 
-| Game                           | Price | Description                                            |
-| ------------------------------ | ----- | ------------------------------------------------------ |
-| 🐦 **Flappy Bird**             | 20 🪙 | Navigate through pipes and aim for the highest score   |
-| 💰 **Spend Bill Gates' Money** | 25 🪙 | Experience what it's like to spend billions            |
-| ✅ **Life Checklist**          | 40 🪙 | Complete life milestones and earn points               |
-| ⚡ **Reaction Time**           | 15 🪙 | Test your reflexes and earn coins based on speed       |
-| 📊 **Progress**                | 30 🪙 | Visualize time progress and upcoming events            |
-| 🐍 **Snake Game**              | 15 🪙 | Classic snake gameplay with modern controls            |
-| 🔢 **2048**                    | 20 🪙 | Combine numbered tiles to reach 2048                   |
-| 🔐 **Password Game**           | 30 🪙 | Solve increasingly complex password rules              |
-| 🎰 **Spin the Wheel**          | 25 🪙 | Test your luck and win (or lose) coins                 |
-| 🧠 **Memory Match**            | 35 🪙 | Flip cards and match pairs with minimal moves          |
-| 🛒 **Sell Sell Sell**          | 40 🪙 | Explore the world of consumer capitalism               |
-| 🌌 **Speed**                   | 30 🪙 | Discover how fast you're actually moving through space |
+| Game | Price | Description |
+|------|-------|-------------|
+| **Flappy Bird** | 20 coins | Navigate through pipes and aim for the highest score |
+| **Spend Bill Gates' Money** | 25 coins | Experience what it's like to spend billions |
+| **Life Checklist** | 40 coins | Complete life milestones and earn points |
+| **Reaction Time** | 15 coins | Test your reflexes and earn coins based on speed |
+| **Progress** | 30 coins | Visualize time progress and upcoming events |
+| **Snake Game** | 15 coins | Classic snake gameplay with modern controls |
+| **2048** | 20 coins | Combine numbered tiles to reach 2048 |
+| **Password Game** | 30 coins | Solve increasingly complex password rules |
+| **Spin the Wheel** | 25 coins | Test your luck and win (or lose) coins |
+| **Memory Match** | 35 coins | Flip cards and match pairs with minimal moves |
+| **Sell Sell Sell** | 40 coins | Explore the world of consumer capitalism |
+| **Speed** | 30 coins | Discover how fast you're actually moving through space |
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: Next.js 15.5.4 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
+- **Animations**: Motion (Framer Motion)
 - **State Management**: React Context + Redux Toolkit
 - **UI Components**: Radix UI + Custom Components
 - **Icons**: Lucide React + Font Awesome
 - **Deployment**: Vercel
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -88,7 +88,7 @@ A fun web-based arcade where every game costs coins to play, and you can earn mo
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 avafun/
@@ -110,7 +110,7 @@ avafun/
 └── types/                # TypeScript type definitions
 ```
 
-## 🎨 Key Features Implementation
+## Key Features
 
 ### Coin System
 
@@ -133,7 +133,7 @@ avafun/
 - **Bundle Optimization**: Tree shaking and dead code elimination
 - **Caching**: Efficient caching strategies for static assets
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Here's how you can help:
 
@@ -151,18 +151,18 @@ Contributions are welcome! Here's how you can help:
 - Test your changes thoroughly
 - Ensure responsive design
 
-## 📜 Credits & Acknowledgments
+## Credits & Acknowledgments
 
 - **Inspiration**: Some game concepts were inspired by [neal.fun](https://neal.fun) - an amazing collection of interactive experiences
 - **2048 Game Logic**: The 2048 game implementation was adapted from public repositories and tutorials available online
 - **Icons**: Lucide React, Font Awesome, and Radix UI icons
 - **Hosting**: Deployed on Vercel
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🐛 Bug Reports
+## Bug Reports
 
 Found a bug? Please create an issue with:
 
@@ -171,11 +171,11 @@ Found a bug? Please create an issue with:
 - Expected vs actual behavior
 - Browser and device information
 
-## 💡 Feature Requests
+## Feature Requests
 
 Have an idea for a new game or feature? We'd love to hear it! Create an issue with the "enhancement" label.
 
-## 📞 Contact
+## Contact
 
 - **GitHub**: [@avalynndev](https://github.com/avalynndev)
 - **Twitter**: [@avalynndev](https://x.com/avalynndev)
@@ -183,6 +183,6 @@ Have an idea for a new game or feature? We'd love to hear it! Create an issue wi
 
 ---
 
-**🎮 Made with ❤️ by avalynndev**
+**Made with love by avalynndev**
 
-_Enjoy your games and may the coins be ever in your favor!_ 🪙
+_Enjoy your games and may the coins be ever in your favor!_
