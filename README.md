@@ -1,21 +1,26 @@
-# Avafun
+<center> <h1><a href="https://avafun.vercel.app/"> Avafun</a> </h1></center>
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,ts" />
+  <br/>
+  <a href=""><kbd>⚫️ shadcn-ui</kbd></a>
+</p>
+<br/><br/>
+
+# ⚡What is Avafun?
 
 A web-based arcade where every game costs coins to play. The longer you play, the more coins you earn to unlock new games. Built with Next.js, React, and TypeScript.
 
-![Status](https://img.shields.io/badge/Status-Live-brightgreen) ![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black) ![React](https://img.shields.io/badge/React-19.1.0-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+Here is the [video](https://www.youtube.com/watch?v=nT9bRKZK0QU) showcasing the abilities of this wonderful website.
 
-## Live Demo
+# 🔥Features
 
-**[Play Avafun Now](https://avafun.vercel.app)**
-
-## Features
-
-- **12 Unique Games**: From classic Snake to modern Password challenges
-- **Coin Economy**: Earn coins by playing games and spend them to unlock new experiences
-- **No Registration**: Play instantly without creating accounts
-- **Local Storage**: Your progress is saved locally on your device
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
-- **Dark/Light Theme**: Toggle between themes for comfortable gaming
+- 12 Unique Games: From classic Snake to modern Password challenges
+- Coin Economy: Earn coins by playing games and spend them to unlock new experiences
+- No Registration: Play instantly without creating accounts
+- Local Storage: Your progress is saved locally on your device
+- Responsive Design: Works perfectly on desktop, tablet, and mobile
+- Dark/Light Theme: Toggle between themes for comfortable gaming
 
 ## Available Games
 
@@ -32,157 +37,152 @@ A web-based arcade where every game costs coins to play. The longer you play, th
 | **Spin the Wheel** | 25 coins | Test your luck and win (or lose) coins |
 | **Memory Match** | 35 coins | Flip cards and match pairs with minimal moves |
 | **Sell Sell Sell** | 40 coins | Explore the world of consumer capitalism |
-| **Speed** | 30 coins | Discover how fast you're actually moving through space |
+| **Speed** | 30 coins | How fast you're actually moving through space |
 
-## Tech Stack
-
-- **Framework**: Next.js 15.5.4 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Motion (Framer Motion)
-- **State Management**: React Context + Redux Toolkit
-- **UI Components**: Radix UI + Custom Components
-- **Icons**: Lucide React + Font Awesome
-- **Deployment**: Vercel
-
-## Getting Started
+# 🧬 Self Hosting Guide
 
 ### Prerequisites
 
-- Node.js 18+
-- npm, yarn, pnpm, or bun
+- Node.js 20 or later
+- npm or bun package manager
 
 ### Installation
 
-1. **Clone the repository**
+1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/avalynndev/avafun.git
-   cd avafun
-   ```
+```bash
+git clone https://github.com/avalynndev/avafun.git
+cd avafun
+```
 
-2. **Install dependencies**
+2. Install dependencies:
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   # or
-   bun install
-   ```
+```bash
+npm install
+```
 
-3. **Run the development server**
+3. Run the development server:
 
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
-   ```
+```bash
+npm run dev
+```
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Building for Production
+
+```bash
+npm run build
+npm start
+```
+
+By following these steps, you can host the Avafun web app on your own server and make it accessible to users.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Favalynndev%2Favafun)
 
 ## Project Structure
 
 ```
 avafun/
-├── app/                    # Next.js App Router pages
-│   ├── (game)/            # Game pages with session validation
-│   ├── privacy/           # Privacy policy page
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
+├── app/                   # App Router and game pages
+│   ├── 2048/
+│   ├── flappy-bird/
+│   ├── life-checklist/
+│   ├── memory-match/
+│   ├── password-game/
+│   ├── progress/
+│   ├── reaction-time/
+│   ├── sell-sell-sell/
+│   ├── snake-game/
+│   ├── speed/
+│   ├── spend/
+│   ├── spin-the-wheel/
+│   ├── privacy/
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   ├── page.tsx
+│   ├── favicon.ico
+│   ├── apple-icon.png
+│   ├── icon0.svg
+│   ├── icon1.png
+│   └── manifest.json
 ├── components/            # React components
-│   ├── ui/               # Reusable UI components
-│   ├── sections/         # Page sections
-│   └── (game-specific)/  # Game-specific components
-├── data/                 # Static data files
-├── hooks/                # Custom React hooks
-├── lib/                  # Utility libraries
-├── redux/                # Redux store and slices
-├── rules/                # Password game rule definitions
-├── styles/               # Global CSS
-└── types/                # TypeScript type definitions
+│   ├── 2048/
+│   ├── password/
+│   ├── sections/
+│   ├── spend/
+│   ├── ui/
+│   ├── coin-context.tsx
+│   ├── coin-display.tsx
+│   ├── coin-drop.tsx
+│   ├── memory-game.tsx
+│   ├── mode-toggle.tsx
+│   ├── store-provider.tsx
+│   ├── tailwind-indicator.tsx
+│   └── theme-provider.tsx
+├── config/
+│   └── site.ts
+├── data/
+│   ├── games.ts
+│   └── products.json
+├── fonts/
+│   ├── GeistMonoVF.woff
+│   └── GeistVF.woff
+├── hooks/
+│   ├── spend.ts
+│   └── use-game.ts
+├── lib/
+│   ├── fonts.ts
+│   └── utils.ts
+├── redux/
+│   ├── productSlicer.ts
+│   └── store.ts
+├── rules/                 # Password Game rules and helpers
+│   ├── earthquake.tsx
+│   ├── location.tsx
+│   ├── qrcode.tsx
+│   ├── riddle.tsx
+│   ├── rule.ts
+│   ├── rules.ts
+│   ├── slidingpuzzle.tsx
+│   ├── sum.tsx
+│   ├── time-emoji.tsx
+│   ├── utils.ts
+│   ├── wordle.tsx
+│   └── words.ts
+├── styles/
+│   └── globals.css
+├── types/
+│   └── 2048.ts
+├── util/
+│   ├── date.ts
+│   └── height.ts
+├── public/                # Static assets
+│   ├── 2048/
+│   ├── games/
+│   ├── memory-cards/
+│   ├── sell-sell-sell/
+│   ├── speed/
+│   ├── spend/
+│   ├── logo.svg
+│   ├── web-app-manifest-192x192.png
+│   └── web-app-manifest-512x512.png
+├── eslint.config.mjs
+├── next.config.ts
+├── postcss.config.mjs
+├── tsconfig.json
+├── components.json
+├── package.json
+└── README.md
 ```
 
-## Key Features
+## 📝 Notes and Credits
 
-### Coin System
-
-- **Local Storage**: Coins are stored in browser's localStorage
-- **Session Validation**: Games require valid session keys to prevent cheating
-- **Dynamic Pricing**: Different games cost different amounts
-- **Earning Mechanics**: Each game has unique coin earning systems
-
-### Game Architecture
-
-- **Session Management**: Each game session is validated with unique keys
-- **Progress Tracking**: High scores and progress saved locally
-- **Responsive Design**: All games work on mobile and desktop
-- **Accessibility**: Keyboard navigation and screen reader support
-
-### Performance Optimizations
-
-- **Code Splitting**: Games are loaded on demand
-- **Image Optimization**: Next.js Image component for optimal loading
-- **Bundle Optimization**: Tree shaking and dead code elimination
-- **Caching**: Efficient caching strategies for static assets
-
-## Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Commit your changes**: `git commit -m 'Add amazing feature'`
-4. **Push to the branch**: `git push origin feature/amazing-feature`
-5. **Open a Pull Request**
-
-### Development Guidelines
-
-- Follow TypeScript best practices
-- Use Tailwind CSS for styling
-- Write meaningful commit messages
-- Test your changes thoroughly
-- Ensure responsive design
-
-## Credits & Acknowledgments
-
-- **Inspiration**: Some game concepts were inspired by [neal.fun](https://neal.fun) - an amazing collection of interactive experiences
-- **2048 Game Logic**: The 2048 game implementation was adapted from public repositories and tutorials available online
-- **Icons**: Lucide React, Font Awesome, and Radix UI icons
-- **Hosting**: Deployed on Vercel
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Bug Reports
-
-Found a bug? Please create an issue with:
-
-- Description of the bug
-- Steps to reproduce
-- Expected vs actual behavior
-- Browser and device information
-
-## Feature Requests
-
-Have an idea for a new game or feature? We'd love to hear it! Create an issue with the "enhancement" label.
-
-## Contact
-
-- **GitHub**: [@avalynndev](https://github.com/avalynndev)
-- **Twitter**: [@avalynndev](https://x.com/avalynndev)
-- **Project**: [avalynndev/avafun](https://github.com/avalynndev/avafun)
+- AI has been very minutely used. Only for fixing bugs
+- This project has lot of inspiration from neal.fun, none of the code is copied from neal.fun though. Except the images.
+- 2048 game logic has been copied from a github repo.
+- This project was made for the theme "COINS" for Siege Week 5.
 
 ---
 
-**Made with love by avalynndev**
-
-_Enjoy your games and may the coins be ever in your favor!_
+**Made with ❤️ for Keerthi**
